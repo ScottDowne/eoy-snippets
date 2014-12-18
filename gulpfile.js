@@ -36,7 +36,8 @@ gulp.task('build', function () {
         "{{ donationAmountLeft|safe }}": "10",
         "{{ donationAmountMiddle|safe }}": "5",
         "{{ donationAmountRight|safe }}": "3",
-        "{{ donateButtonText|safe }}": "Donate Now"
+        "{{ donateButtonText|safe }}": "Donate Now",
+        '{{ thumbnailImg }}': ''
       }
     }, {
       name: "paypal-snippet",

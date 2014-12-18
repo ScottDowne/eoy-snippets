@@ -90,8 +90,15 @@
           float: left;
         }
 
-  </style>
+        #mofo-eoy-fundraiser-{{ snippet_id }} .thumbnail-img {
+          float: left;
+          margin: 5px;
+        }
 
+        img[src=""] { display: none }
+
+  </style>
+    <img class="thumbnail-img" src="{{ thumbnailImg }}" />
     <p>{{ text|safe }}</p>
 
     <div class="donation-amounts pull-left">
