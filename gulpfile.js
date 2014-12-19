@@ -49,9 +49,11 @@ gulp.task('build', function () {
         '{{ paypalURL|safe }}': 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=44ZHAVWJHTK2N&amp;locale=US&amp;item_name=Mozilla%20Foundation&amp;no_note=1&amp;no_shipping=1&amp;rm=1&amp;custom=20140923%20eoy14%20sequential&amp;currency_code=USD&amp;amount=',
         '{{ text|safe }}': 'Mozilla, the non-profit behind Firefox, relies on grants and donations from people like you. <em>If everyone reading this donates a few dollars, we can be fully funded for another year.</em>',
         '{{ highlightColor }}': 'rgba(243, 248, 1, 0.4)',
+        '{{ backgroundColor }}': '',
         '{{ selectAmount|safe }}': 'Select Amount',
         '{{ paymentMethod|safe }}': 'Payment Method',
         '{{ donateNow|safe }}': 'Donate Now',
+        '{{ buttonAnimate }}': '', // outline-animate or background-animate
         '{{thumbnailImg}}': '',
         '{{paypalImg}}': '',
         '{{creditCardImg}}': ''

@@ -139,6 +139,37 @@
             margin: 0 2px;
           }
 
+        #mofo-eoy-fundraiser-{{ snippet_id }} .donate-button.outline-animate {
+          animation: 1s ease 0s alternate none infinite running outline-color;
+          outline-style: solid;
+          outline-width: 10px;
+          margin: 10px;
+          outline-color: #F6CA26;
+        }
+
+        #mofo-eoy-fundraiser-{{ snippet_id }} .donate-button.background-animate {
+          animation: 1s ease 0s alternate none infinite running background-color;
+          background-color: #EA3B28;
+        }
+
+        @keyframes outline-color {
+          100% {
+            outline-color: #F6CA26;
+          }
+          0% {
+            outline-color: transparent;
+          }
+        }
+
+        @keyframes background-color {
+          0% {
+            background-color: #C13931;
+          }
+          100% {
+            background-color: #EA3B28;
+          }
+        }
+
   </style>
 
     <div class="columns">
@@ -174,7 +205,7 @@
         </div>
 
         <div class="center">
-          <a class="button button-red button-wide donate-button" href="#" target="_blank">{{ donateNow|safe }} &#187;</a>
+          <a class="button button-red button-wide donate-button {{ buttonAnimate }}" href="#" target="_blank">{{ donateNow|safe }} &#187;</a>
         </div>
       </div>
     </div>
