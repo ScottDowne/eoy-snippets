@@ -74,6 +74,26 @@
           padding: 6px 0;
         }
 
+        #mofo-eoy-fundraiser-{{ snippet_id }} .button.other-amount {
+          text-align: left;
+          position: relative;
+          padding-left: 10px;
+        }
+
+        #mofo-eoy-fundraiser-{{ snippet_id }} .button.other-amount input {
+          position: absolute;
+          top: 2px;
+          left: 30px;
+          width: 82%;
+          height: 29px;
+          line-height: 24px;
+          padding-left: 10px;
+          padding-right: 5px;
+          border: medium none;
+          border-radius: 2px;
+          -moz-appearance: textfield;
+        }
+
         #mofo-eoy-fundraiser-{{ snippet_id }} .button:hover {
           cursor: pointer;
           background-color: rgb(120, 120, 120);
@@ -138,6 +158,10 @@
             width: 33%;
             margin: 0 2px;
           }
+          #mofo-eoy-fundraiser-{{ snippet_id }} .flex-1-100 > * {
+            width: 100%;
+            margin: 0 2px;
+          }
 
   </style>
 
@@ -146,36 +170,41 @@
         <img src="{{ thumbnailImg }}"/>
       </div>
       <div class="column">
-        <p>{{ text|safe }}</p>
+        <form action="#" method="post" target="_blank" id="other-amount-form">
+          <p>{{ text|safe }}</p>
 
-        <div class="flex flex-2-50">
-          <div class="donation-amounts">
-            <header>{{ selectAmount|safe }}</header>
+          <div class="flex flex-2-50">
+            <div class="donation-amounts">
+              <header>{{ selectAmount|safe }}</header>
 
-            <div class="flex flex-3-33">
-              <button class="button button-selected" data-amount="{{ donationAmountLeft|safe }}">${{ donationAmountLeft|safe }}</button>
-              <button class="button" data-amount="{{ donationAmountMiddle|safe }}">${{ donationAmountMiddle|safe }}</button>
-              <button class="button" data-amount="{{ donationAmountRight|safe }}">${{ donationAmountRight|safe }}</button>
+              <div class="flex flex-3-33">
+                <button type="button" class="button button-selected" data-amount="{{ donationAmountLeft|safe }}">${{ donationAmountLeft|safe }}</button>
+                <button type="button" class="button" data-amount="{{ donationAmountMiddle|safe }}">${{ donationAmountMiddle|safe }}</button>
+                <button type="button" class="button" data-amount="{{ donationAmountRight|safe }}">${{ donationAmountRight|safe }}</button>
+              </div>
+              <div class="flex flex-1-100">
+                <div class="button other-amount" data-amount="">$<input type="number" step="0.01" min="{{ minAmount|safe }}" placeholder="{{ otherAmountPlaceholder|safe }}" x-moz-errormessage="{{ otherAmountError|safe }}"></input></div>
+              </div>
+            </div>
+
+            <div class="payment-methods">
+              <header>{{ paymentMethod|safe }}</header>
+
+              <div class="flex flex-2-50">
+                <a href="#" class="button button-selected" data-payment="paypal">
+                  <img src="{{ paypalImg }}"/>
+                </a>
+                <a href="#" class="button" data-payment="credit">
+                  <img src="{{ creditCardImg }}"/>
+                </a>
+              </div>
             </div>
           </div>
 
-          <div class="payment-methods">
-            <header>{{ paymentMethod|safe }}</header>
-
-            <div class="flex flex-2-50">
-              <a href="#" class="button button-selected" data-payment="paypal">
-                <img src="{{ paypalImg }}"/>
-              </a>
-              <a href="#" class="button" data-payment="credit">
-                <img src="{{ creditCardImg }}"/>
-              </a>
-            </div>
+          <div class="center">
+            <button class="button button-red button-wide donate-button">{{ donateNow|safe }} &#187;</button>
           </div>
-        </div>
-
-        <div class="center">
-          <a class="button button-red button-wide donate-button" href="#" target="_blank">{{ donateNow|safe }} &#187;</a>
-        </div>
+        </form>
       </div>
     </div>
 
@@ -227,8 +256,12 @@
                 }
 
                 // Element cache :
-                var btnDonate = snippet.querySelector('.donate-button');
+                var otherAmountInput = document.querySelector(".button.other-amount input");
                 var elHighlighted = snippet.querySelector('em');
+
+                function disableLink(e) {
+                  e.preventDefault();
+                }
 
                 // Set URL of donate anchor/button in DOM
                 function setURL() {
@@ -242,26 +275,35 @@
                     url += donationAmount;
                   }
 
-
-                  btnDonate.attributes['href'].value = url.replace(/&amp;/g, '&');
+                  url = url.replace(/&amp;/g, '&');
+                  document.querySelector("#other-amount-form").setAttribute("action", url);
                 }
 
                 setURL();
 
                 new ToggleGroup(snippet.querySelector('.donation-amounts'), function (element) {
+                  otherAmountInput.value = "";
+                  otherAmountInput.removeAttribute("required");
                   donationAmount = element.attributes['data-amount'].value;
                   setURL();
+                });
+
+                otherAmountInput.value = "";
+                otherAmountInput.addEventListener("change", function() {
+                  otherAmountInput.setAttribute("required", true);
+                  donationAmount = this.value;
+                  if (!this.value) {
+                    return;
+                  }
+                  setURL();
+                });
+                document.querySelector(".button.other-amount").addEventListener("click", function() {
+                  otherAmountInput.setAttribute("required", true);
                 });
 
                 new ToggleGroup(snippet.querySelector('.payment-methods'), function (element) {
                   donationMethod = element.attributes['data-payment'].value;
                   setURL();
-                });
-
-                // Event binding :
-
-                btnDonate.addEventListener('click', function (event) {
-                  btnDonate.blur();
                 });
 
                 // Fade in highlight on text
