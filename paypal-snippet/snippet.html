@@ -183,7 +183,7 @@
                 <button type="button" class="button" data-amount="{{ donationAmountRight|safe }}">${{ donationAmountRight|safe }}</button>
               </div>
               <div class="flex flex-1-100">
-                <div class="button other-amount" data-amount="">$<input type="number" step="any" min="{{ minAmount|safe }}" placeholder="{{ otherAmountPlaceholder|safe }}" x-moz-errormessage="{{ otherAmountError|safe }}"></input></div>
+                <div class="button other-amount" data-amount="">$<input type="number" step="0.01" min="{{ minAmount|safe }}" placeholder="{{ otherAmountPlaceholder|safe }}" x-moz-errormessage="{{ otherAmountError|safe }}"></input></div>
               </div>
             </div>
 

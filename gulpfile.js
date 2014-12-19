@@ -56,7 +56,7 @@ gulp.task('build', function () {
         '{{ paypalImg }}': '',
         '{{ creditCardImg }}': '',
         '{{ otherAmountPlaceholder|safe }}': "Other amount",
-        '{{ otherAmountError|safe }}': "Please select a value that is no less than 2",
+        '{{ otherAmountError|safe }}': "Please select a dollar value that is no less than 2",
         "{{ minAmount|safe }}": "2"
       }
     }
