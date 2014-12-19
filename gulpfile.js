@@ -52,9 +52,12 @@ gulp.task('build', function () {
         '{{ selectAmount|safe }}': 'Select Amount',
         '{{ paymentMethod|safe }}': 'Payment Method',
         '{{ donateNow|safe }}': 'Donate Now',
-        '{{thumbnailImg}}': '',
-        '{{paypalImg}}': '',
-        '{{creditCardImg}}': ''
+        '{{ thumbnailImg }}': '',
+        '{{ paypalImg }}': '',
+        '{{ creditCardImg }}': '',
+        '{{ otherAmountPlaceholder|safe }}': "Other amount",
+        '{{ otherAmountError|safe }}': "Please select a value that is no less than 2",
+        "{{ minAmount|safe }}": "2"
       }
     }
   ]);
