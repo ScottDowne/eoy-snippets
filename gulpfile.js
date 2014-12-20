@@ -7,19 +7,18 @@ var connect = require('gulp-connect');
 gulp.task('build', function () {
   function compile(snippet, index, original) {
     var snippetData = snippet.data;
-    var snippetSource = fs.readFileSync(snippet.name + "/snippet.html", "utf8");
+    var snippetSource = fs.readFileSync(snippet.source + "/snippet.html", "utf8");
     if (snippetData) {
       Object.keys(snippetData).forEach(function(dataKey, index, original) {
         var dataValue = snippetData[dataKey];
         dataKey = dataKey.replace("|", "\\|");
-        console.log(dataKey, dataValue);
         snippetSource = snippetSource.replace(new RegExp(dataKey, 'g'), dataValue);
       });
     }
     gulp.src('index.template')
       .pipe(rename('index.html'))
       .pipe(replace('{{ SNIPPET }}', snippetSource))
-      .pipe(gulp.dest("./" + snippet.name + "/"));
+      .pipe(gulp.dest("./" + snippet.destination + "/"));
   }
 
   function compileSnippets(snippets) {
@@ -28,7 +27,8 @@ gulp.task('build', function () {
 
   compileSnippets([
     {
-      name: "simple-snippet",
+      source: "simple-snippet",
+      destination: "simple-snippet",
       data: {
         "{{ snippet_id }}": "666",
         "{{ text|safe }}": "<b>Dear Firefox users:</b> Mozilla puts the public good and user privacy before profit. If Firefox is useful to you, take one minute to support the non-profit behind it. <em>If everyone reading this donates $3, Mozilla's fundraiser would be over within an hour.</em> <i>Thank you.</i></p>",
@@ -36,10 +36,48 @@ gulp.task('build', function () {
         "{{ donationAmountLeft|safe }}": "10",
         "{{ donationAmountMiddle|safe }}": "5",
         "{{ donationAmountRight|safe }}": "3",
-        "{{ donateButtonText|safe }}": "Donate Now"
+        "{{ donateButtonText|safe }}": "Donate Now",
+        '{{ donationFormURL|safe }}': "https://sendto.mozilla.org/page/contribute/givenow-seq",
+        '{{ backgroundColor }}': '',
+        '{{ backgroundImg }}': '',
+        '{{ buttonAnimate }}': '' // outline-animate or background-animate
       }
     }, {
-      name: "paypal-snippet",
+      source: "simple-snippet",
+      destination: "disruptive-snippet-yellow",
+      data: {
+        "{{ snippet_id }}": "666",
+        "{{ text|safe }}": "<b>Dear Firefox users:</b> Mozilla puts the public good and user privacy before profit. If Firefox is useful to you, take one minute to support the non-profit behind it. <em>If everyone reading this donates $3, Mozilla's fundraiser would be over within an hour.</em> <i>Thank you.</i></p>",
+        "{{ highlightColor }}": '',
+        "{{ donationAmountLeft|safe }}": "10",
+        "{{ donationAmountMiddle|safe }}": "5",
+        "{{ donationAmountRight|safe }}": "3",
+        "{{ donateButtonText|safe }}": "Donate Now",
+        '{{ donationFormURL|safe }}': "https://sendto.mozilla.org/page/contribute/givenow-seq",
+        '{{ backgroundColor }}': 'linear-gradient(to bottom, #FEE885, #FCDE3F)',
+        '{{ backgroundImg }}': 'https://bug1112305.bugzilla.mozilla.org/attachment.cgi?id=8539536',
+        '{{ buttonAnimate }}': 'background-animate' // outline-animate or background-animate
+      }
+    }, {
+      source: "simple-snippet",
+      destination: "disruptive-snippet-grey",
+      data: {
+        "{{ snippet_id }}": "666",
+        "{{ text|safe }}": "<b>Dear Firefox users:</b> Mozilla puts the public good and user privacy before profit. If Firefox is useful to you, take one minute to support the non-profit behind it. <em>If everyone reading this donates $3, Mozilla's fundraiser would be over within an hour.</em> <i>Thank you.</i></p>",
+        "{{ highlightColor }}": '',
+        "{{ donationAmountLeft|safe }}": "10",
+        "{{ donationAmountMiddle|safe }}": "5",
+        "{{ donationAmountRight|safe }}": "3",
+        "{{ donateButtonText|safe }}": "Donate Now",
+        '{{ donationFormURL|safe }}': "https://sendto.mozilla.org/page/contribute/givenow-seq",
+        '{{ backgroundColor }}': 'linear-gradient(to bottom, #5B595B, #3A3A3C)',
+        '{{ fontColor }}': '#F3F3F4',
+        '{{ backgroundImg }}': '',
+        '{{ buttonAnimate }}': 'background-animate' // outline-animate or background-animate
+      }
+    }, {
+      source: "paypal-snippet",
+      destination: "paypal-snippet",
       data: {
         "{{ snippet_id }}": "666",
         '{{ donationAmountLeft|safe }}': '10',
