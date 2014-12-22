@@ -95,7 +95,7 @@
           animation: 1s ease 0s alternate none infinite running outline-color;
           outline-style: solid;
           outline-width: 10px;
-          outline-color: rgba(243, 248, 1, 0.4);
+          outline-color: {{ animateColor }};
         }
 
         #mofo-eoy-fundraiser-{{ snippet_id }} .donate-button.background-animate {
@@ -103,9 +103,16 @@
           background-color: #EA3B28;
         }
 
+        #mofo-eoy-fundraiser-{{ snippet_id }} .donate-button.outline2-animate {
+          animation: 1s ease 0s alternate none infinite running outline-offset;
+          outline-offset: -5px;
+          outline-style: dashed;
+          outline-color: #708090;
+        }
+
         @keyframes outline-color {
           100% {
-            outline-color: rgba(243, 248, 1, 0.4);
+            outline-color: {{ animateColor }};
           }
           0% {
             outline-color: transparent;
@@ -114,10 +121,19 @@
 
         @keyframes background-color {
           0% {
-            background-color: #C13931;
+            background-color: {{ animateColor }};
           }
           100% {
             background-color: #EA3B28;
+          }
+        }
+
+        @keyframes outline-offset {
+          0% {
+            outline-offset: -2px;
+          }
+          100% {
+            outline-offset: 15px;
           }
         }
 

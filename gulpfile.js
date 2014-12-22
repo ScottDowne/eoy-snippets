@@ -55,8 +55,8 @@ gulp.task('build', function () {
         "{{ donateButtonText|safe }}": "Donate Now",
         '{{ donationFormURL|safe }}': "https://sendto.mozilla.org/page/contribute/givenow-seq",
         '{{ backgroundColor }}': 'linear-gradient(to bottom, #FEE885, #FCDE3F)',
-        '{{ backgroundImg }}': 'https://bug1112305.bugzilla.mozilla.org/attachment.cgi?id=8539536',
-        '{{ buttonAnimate }}': 'background-animate' // outline-animate or background-animate
+        '{{ animateColor }}': 'rgba(255, 149, 0, 0.4)',
+        '{{ buttonAnimate }}': 'outline2-animate' // outline-animate or background-animate
       }
     }, {
       source: "simple-snippet",
@@ -73,7 +73,8 @@ gulp.task('build', function () {
         '{{ backgroundColor }}': 'linear-gradient(to bottom, #5B595B, #3A3A3C)',
         '{{ fontColor }}': '#F3F3F4',
         '{{ backgroundImg }}': '',
-        '{{ buttonAnimate }}': 'background-animate' // outline-animate or background-animate
+        '{{ animateColor }}': 'rgba(243, 248, 1, 0.4)',
+        '{{ buttonAnimate }}': 'outline-animate' // outline-animate or background-animate
       }
     }, {
       source: "paypal-snippet",
