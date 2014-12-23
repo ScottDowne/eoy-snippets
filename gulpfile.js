@@ -40,7 +40,7 @@ gulp.task('build', function () {
         '{{ donationFormURL|safe }}': "https://sendto.mozilla.org/page/contribute/givenow-seq",
         '{{ backgroundColor }}': '',
         '{{ backgroundImg }}': '',
-        '{{ buttonAnimate }}': '' // outline-animate or background-animate
+        '{{ buttonAnimate }}': ''
       }
     }, {
       source: "simple-snippet",
