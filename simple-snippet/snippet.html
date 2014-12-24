@@ -105,6 +105,58 @@
           box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3) inset;
         }
 
+        #mofo-eoy-fundraiser-{{ snippet_id }} .donate-button.border-glow1 {
+          animation: 2s ease 3s normal none 1 running border-flash1, 2s ease 6s alternate none infinite running border-glow1;
+          box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.65) inset, 0px 0px 1px 0px rgba(255, 255, 255, 1);
+        }
+
+        @keyframes border-flash1 {
+          0% {
+            box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.65) inset, 0px 0px 1px 0px rgba(255, 255, 255, 1);
+          }
+          2% {
+            box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.65) inset, 0px 0px 40px 0px rgba(255, 255, 255, 1);
+          }
+          100% {
+            box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.65) inset, 0px 0px 1px 0px rgba(255, 255, 255, 1);
+          }
+        }
+
+        @keyframes border-glow1 {
+          0% {
+            box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.65) inset, 0px 0px 1px 0px rgba(255, 255, 255, 1);
+          }
+          100% {
+            box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.65) inset, 0px 0px 10px 0px rgba(255, 255, 255, 1);
+          }
+        }
+
+        #mofo-eoy-fundraiser-{{ snippet_id }} .donate-button.border-glow2 {
+          animation: 2s ease 3s normal none 1 running border-flash2, 2s ease 6s alternate none infinite running border-glow2;
+          box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.65) inset, 0px 0px 1px 0px rgba(255, 255, 255, 1) inset;
+        }
+
+        @keyframes border-flash2 {
+          0% {
+            box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.65) inset, 0px 0px 1px 0px rgba(255, 255, 255, 1) inset;
+          }
+          2% {
+            box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.65) inset, 0px 0px 40px 0px rgba(255, 255, 255, 1) inset;
+          }
+          100% {
+            box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.65) inset, 0px 0px 1px 0px rgba(255, 255, 255, 1) inset;
+          }
+        }
+
+        @keyframes border-glow2 {
+          0% {
+            box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.65) inset, 0px 0px 1px 0px rgba(255, 255, 255, 1) inset;
+          }
+          100% {
+            box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.65) inset, 0px 0px 10px 0px rgba(255, 255, 255, 1) inset;
+          }
+        }
+
         @keyframes background-color-first {
           0% {
             background-color: #960900;

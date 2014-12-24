@@ -55,7 +55,7 @@ gulp.task('build', function () {
         "{{ donateButtonText|safe }}": "Donate Now",
         '{{ donationFormURL|safe }}': "https://sendto.mozilla.org/page/contribute/givenow-seq",
         '{{ backgroundColor }}': 'linear-gradient(to bottom, #FEE885, #FCDE3F)',
-        '{{ buttonAnimate }}': 'background-animate2' // background-animate1 or background-animate2
+        '{{ buttonAnimate }}': 'border-glow2' // background-animate1, background-animate2, border-glow1, or border-glow2
       }
     }, {
       source: "simple-snippet",
@@ -71,7 +71,7 @@ gulp.task('build', function () {
         '{{ donationFormURL|safe }}': "https://sendto.mozilla.org/page/contribute/givenow-seq",
         '{{ backgroundColor }}': 'linear-gradient(to bottom, #5B595B, #3A3A3C)',
         '{{ fontColor }}': '#F3F3F4',
-        '{{ buttonAnimate }}': 'background-animate2' // outline-animate or background-animate
+        '{{ buttonAnimate }}': 'border-glow1' // background-animate1, background-animate2, border-glow1, or border-glow2
       }
     }, {
       source: "paypal-snippet",
