@@ -92,20 +92,20 @@
         }
 
         #mofo-eoy-fundraiser-{{ snippet_id }} .donate-button.background-animate1 {
-          animation: 1s ease 1s alternate none 2 running background-color-first, 1s ease 3s alternate none infinite running background-color-infinite;
+          animation: 1s ease 1s alternate none 2 running background-color-first-{{ snippet_id }}, 1s ease 3s alternate none infinite running background-color-infinite-{{ snippet_id }};
           background-color: #960900;
           border-color: rgba(230, 69, 61, 0.1);
           box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3) inset;
         }
 
         #mofo-eoy-fundraiser-{{ snippet_id }} .donate-button.background-animate2 {
-          animation: 1s ease 1s alternate none infinite running background-color-first;
+          animation: 1s ease 1s alternate none infinite running background-color-first-{{ snippet_id }};
           background-color: #960900;
           border-color: rgba(230, 69, 61, 0.1);
           box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3) inset;
         }
 
-        @keyframes background-color-first {
+        @keyframes background-color-first-{{ snippet_id }} {
           0% {
             background-color: #960900;
             border-color: rgba(230, 69, 61, 0.1);
@@ -118,7 +118,7 @@
           }
         }
 
-        @keyframes background-color-infinite {
+        @keyframes background-color-infinite-{{ snippet_id }} {
           0% {
             background-color: #960900;
           }
@@ -206,4 +206,3 @@
       //]]>
   </script>
 </div>
-
