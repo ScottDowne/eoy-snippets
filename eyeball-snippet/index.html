@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>about:home Snippet Preview</title>
+
+    <link rel="icon" type="image/png" id="favicon" href="chrome://branding/content/icon32.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="chrome://browser/content/abouthome/aboutHome.css"/>
+    <script>
+      (function() {
+        document.addEventListener("DOMContentLoaded", function() {
+          var snippet = document.querySelector("#snippet_set").querySelector(".snippet");
+          var event = new Event("show_snippet");
+          snippet.dispatchEvent(event);
+        });
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div class="spacer"></div>
+    <div id="topSection">
+      <div id="brandLogo"></div>
+
+      <div id="searchContainer">
+        <form name="searchForm" id="searchForm">
+          <div id="searchLogoContainer"><img id="searchEngineLogo" src="google.png"></div>
+          <input type="text" name="q" value="" id="searchText" maxlength="256" autofocus="autofocus"></input>
+          <input id="searchSubmit" type="submit" value="Search"></input>
+        </form>
+      </div>
+
+      <div id="snippetContainer">
+        <div id="snippets">
+          <div class="snippet_set" id="snippet_set">
+            <div class="snippet" id="mofo-eoy-fundraiser-666">
+  <style type="text/css">
+
+
+
+        body.background-666 .privacy-svg {
+          display: none;
+        }
+        body.background-666 .privacy-svg.show {
+          display: block;
+        }
+        body.background-666 .privacy-gif {
+          display: show;
+        }
+        body.background-666 .privacy-gif.hide {
+          display: none;
+        }
+
+        body.background-666 .front {
+          height: 50px;
+          width: 80px;
+          position: absolute;
+        }
+
+        body.background-666 .privacy-gif .eyelid {
+          margin-top: 15px;
+        }
+
+        body.background-666 .privacy-eye {
+          position: absolute;
+        }
+
+        body.background-666 .eye-container {
+          height: 80px;
+          width: 80px;
+flex-shrink: 0;
+        }
+
+        body.background-666 .container {
+          display: flex;
+          align-items: center;
+          margin-top: -15px;
+        }
+
+
+        body.background-666 * {
+          box-sizing: border-box;
+        }
+
+.eyelid {
+  height: 110%;
+  margin: 0 auto;
+  position: relative;
+  width: 69%;
+  overflow: hidden;
+}
+.eyelid::before,
+.eyelid::after {
+  background: #F2F2F2;
+  border: 0 solid transparent;
+  border-radius: 33%;
+  content: '';
+  display: block;
+  left: -11.5%;
+  height: 50%;
+  position: absolute;
+  width: 121%;
+  -webkit-animation: real-eyelids 7s infinite;
+  -o-animation: real-eyelids 7s infinite;
+  -moz-animation: real-eyelids 7s infinite;
+  animation: real-eyelids 7s infinite;
+}
+.eyelid::before {
+  top: 0;
+  z-index: 100;
+}
+.eyelid::after {
+  bottom: 0;
+}
+.sclera {
+  background: #ffffff;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.iris {
+  background: #443F27;
+  border-radius: 50%;
+  height: 65%;
+  width: 65%;
+  padding: 12%;
+  position: relative;
+  top: 17.5%;
+  left: 17.5%;
+  -webkit-animation: searching-eye 7s infinite;
+  -o-animation: searching-eye 7s infinite;
+  -moz-animation: searching-eye 7s infinite;
+  animation: searching-eye 7s infinite;
+}
+.pupil {
+  background: #000000;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.pupil::after {
+  display: block;
+  content: '';
+  background: #ffffff;
+  border-radius: 50%;
+  height: 32%;
+  width: 32%;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+}
+@-webkit-keyframes real-eyelids {
+  0%,
+  90%,
+  100% {
+    height: 0;
+  }
+  95% {
+    height: 60%;
+  }
+}
+@-o-keyframes real-eyelids {
+  0%,
+  90%,
+  100% {
+    height: 0;
+  }
+  95% {
+    height: 60%;
+  }
+}
+@-moz-keyframes real-eyelids {
+  0%,
+  90%,
+  100% {
+    height: 0;
+  }
+  95% {
+    height: 60%;
+  }
+}
+@keyframes real-eyelids {
+  0%,
+  90%,
+  100% {
+    height: 0;
+  }
+  95% {
+    height: 60%;
+  }
+}
+@-webkit-keyframes searching-eye {
+  0%,
+  85.714285716%,
+  100% {
+    top: 17.5%;
+    left: 17.5%;
+  }
+  14.285714286% {
+    top: 17.5%;
+    left: 8%;
+  }
+  28.571428572% {
+    top: 30%;
+    left: 8%;
+  }
+  42.857142858% {
+    top: 30%;
+    left: 30%;
+  }
+  57.142857144% {
+    top: 8%;
+    left: 30%;
+  }
+  71.42857143% {
+    top: 8%;
+    left: 8%;
+  }
+  85.7142857% {
+    top: 0;
+    left: 17.5%;
+  }
+}
+@-o-keyframes searching-eye {
+  0%,
+  85.714285716%,
+  100% {
+    top: 17.5%;
+    left: 17.5%;
+  }
+  14.285714286% {
+    top: 17.5%;
+    left: 8%;
+  }
+  28.571428572% {
+    top: 30%;
+    left: 8%;
+  }
+  42.857142858% {
+    top: 30%;
+    left: 30%;
+  }
+  57.142857144% {
+    top: 8%;
+    left: 30%;
+  }
+  71.42857143% {
+    top: 8%;
+    left: 8%;
+  }
+  85.7142857% {
+    top: 0;
+    left: 17.5%;
+  }
+}
+@-moz-keyframes searching-eye {
+  0%,
+  85.714285716%,
+  100% {
+    top: 17.5%;
+    left: 17.5%;
+  }
+  14.285714286% {
+    top: 17.5%;
+    left: 8%;
+  }
+  28.571428572% {
+    top: 30%;
+    left: 8%;
+  }
+  42.857142858% {
+    top: 30%;
+    left: 30%;
+  }
+  57.142857144% {
+    top: 8%;
+    left: 30%;
+  }
+  71.42857143% {
+    top: 8%;
+    left: 8%;
+  }
+  85.7142857% {
+    top: 0;
+    left: 17.5%;
+  }
+}
+@keyframes searching-eye {
+  0%,
+  85.714285716%,
+  100% {
+    top: 17.5%;
+    left: 17.5%;
+  }
+  14.285714286% {
+    top: 17.5%;
+    left: 8%;
+  }
+  28.571428572% {
+    top: 30%;
+    left: 8%;
+  }
+  42.857142858% {
+    top: 30%;
+    left: 30%;
+  }
+  57.142857144% {
+    top: 8%;
+    left: 30%;
+  }
+  71.42857143% {
+    top: 8%;
+    left: 8%;
+  }
+  85.7142857% {
+    top: 0;
+    left: 17.5%;
+  }
+}
+
+
+
+  </style>
+  <div class="container">
+    <div class="eye-container">
+      <div class="privacy-eye privacy-svg">
+        <div class="front">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
+          <style type="text/css">
+            .st0 {
+              fill: #1B1E27;
+            }
+
+            .st1 {
+              fill: #FFFFFF;
+            }
+
+            .st2 {
+              fill: #443F27;
+            }
+          </style>
+          <g id="eye-white">
+            <g>
+              <path class="st1" d="M68.6,43.5c0,15.5-12.5,28.1-28,28.1c-15.5,0-28.1-12.5-28.1-28c0-15.5,12.5-28.1,28-28.1C55.9,15.5,68.5,28,68.6,43.5"/>
+            </g>
+          </g>
+          <g id="iris-pupil">
+            <g>
+              <path class="st2" d="M57.5,43.6c0,9.4-7.6,17-17,17.1c-9.4,0-17-7.6-17.1-17c0-9.4,7.6-17,17-17.1C49.9,26.5,57.5,34.2,57.5,43.6" />
+              <path class="st0" d="M48.9,44.1c0,5-4,9-9,9c-5,0-9-4-9-9c0-5,4-9,9-9C44.8,35.1,48.9,39.1,48.9,44.1"/>
+              <path class="st1" d="M46.6,37.2c0,1.8-1.4,3.2-3.2,3.2c-1.8,0-3.2-1.4-3.2-3.2c0-1.8,1.4-3.2,3.2-3.2S46.6,35.4,46.6,37.2"/>
+            </g>
+          </g>
+          </svg>
+        </div>
+      </div>
+      <div class="privacy-eye privacy-gif">
+        <div class="front">
+          <div class="eyelid">
+            <div class="sclera">
+              <div class="iris">
+                <div class="pupil">
+                  &nbsp;
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-container">
+      U.S. Congress votes soon on whether to end mass surveillance. Keeping us safe shouldn't cost us our privacy. <a>Take action now.</a>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      //<![CDATA[
+      (function() {
+          var snippet = document.getElementById('mofo-eoy-fundraiser-666');
+          snippet.addEventListener('show_snippet', function() {
+              (function () {
+
+                document.querySelector("body").classList.add("background-666");
+
+                var
+                rectangle,
+                  radius = 9,
+                  center;
+
+                function measureThings() {
+                  rectangle = document.getElementById('iris-pupil').getBoundingClientRect();
+                  center = {
+                    x: (rectangle.width / 2) + (rectangle.left),
+                    y: (rectangle.height / 2) + (rectangle.top)
+                  };
+                }
+
+                function doMaths(x, y, radius) {
+                  var
+                  pythagoras = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)),
+                    coordinates = {
+                      x: x,
+                      y: y
+                    };
+                  if (pythagoras !== 0) {
+                    coordinates.x = x * radius / pythagoras;
+                    coordinates.y = y * radius / pythagoras;
+                  }
+                  return coordinates;
+                }
+
+                function translatePupil(coords) {
+                  var transform = 'translate(' + coords.x + ', ' + coords.y + ')';
+                  document.getElementById('iris-pupil').setAttribute('transform', transform);
+                }
+
+                var mousemoveTime = Date.now();
+                var eyeGif = document.querySelector('.privacy-gif');
+                var eyeSVG = document.querySelector('.privacy-svg');
+
+                function checkMovement() {
+                  var nowTime = Date.now();
+                  var diffTime = (nowTime - mousemoveTime) / 1000;
+                  if (diffTime > 3) {
+                    eyeSVG.classList.remove('show');
+                    eyeGif.classList.remove('hide');
+                  }
+
+                  setTimeout(checkMovement, 1000);
+                }
+
+                checkMovement();
+
+                if (document.getElementById('iris-pupil')) {
+                  window.onmousemove = function (e) {
+                    mousemoveTime = Date.now();
+                    eyeSVG.classList.add('show');
+                    eyeGif.classList.add('hide');
+                    measureThings();
+                    translatePupil(doMaths(e.pageX - center.x, e.pageY - center.y, radius));
+                  };
+                }
+              })();
+
+          }, false);
+      })();
+      //]]>
+  </script>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+
+    <div id="launcher">
+      <button class="launchButton" id="downloads">Downloads</button>
+      <button class="launchButton" id="bookmarks">Bookmarks</button>
+      <button class="launchButton" id="history">History</button>
+      <button class="launchButton" id="apps" hidden="true">Apps</button>
+      <button class="launchButton" id="addons">Add-ons</button>
+      <button class="launchButton" id="sync">Sync</button>
+      <button class="launchButton" id="settings">Settings</button>
+      <div id="restorePreviousSessionSeparator"></div>
+      <button class="launchButton" id="restorePreviousSession">Restore Previous Session</button>
+    </div>
+
+    <a id="aboutMozilla" href="https://www.mozilla.org/about/?utm_source=about-home&amp;utm_medium=Referral"></a>
+  </body>
+</html>

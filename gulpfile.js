@@ -27,6 +27,13 @@ gulp.task('build', function () {
 
   compileSnippets([
     {
+      source: "eyeball-snippet",
+      destination: "eyeball-snippet",
+      data: {
+        "{{ snippet_id }}": "666"
+      }
+    },
+    {
       source: "simple-snippet",
       destination: "simple-snippet",
       data: {
