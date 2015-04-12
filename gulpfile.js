@@ -30,7 +30,10 @@ gulp.task('build', function () {
       source: "eyeball-snippet",
       destination: "eyeball-snippet",
       data: {
-        "{{ snippet_id }}": "666"
+        "{{ snippet_id }}": "666",
+        // blue: 3F9FD8
+        // brown: 443F27
+        "{{ eye_color }}": "#3F9FD8"
       }
     },
     {
