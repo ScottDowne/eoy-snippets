@@ -12,6 +12,8 @@ gulp.task('build', function () {
       Object.keys(snippetData).forEach(function(dataKey, index, original) {
         var dataValue = snippetData[dataKey];
         dataKey = dataKey.replace("|", "\\|");
+        dataKey = dataKey.replace("(", "\\(");
+        dataKey = dataKey.replace(")", "\\)");
         snippetSource = snippetSource.replace(new RegExp(dataKey, 'g'), dataValue);
       });
     }
@@ -31,9 +33,8 @@ gulp.task('build', function () {
       destination: "eyeball-snippet",
       data: {
         "{{ snippet_id }}": "666",
-        // blue: 3F9FD8
-        // brown: 443F27
-        "{{ eye_color }}": "#3F9FD8"
+        "{{ eye_color|default('#3F9FD8', true) }}": "#3F9FD8",
+        "{{ body|safe }}": "Our security and privacy on the Internet are fundamental and must not be treated as optional. <a href=\"http://mzl.la/1CgTnKg\">Tell Congress to rein in mass surveillance, protect privacy, and keep us safe.</a>"
       }
     },
     {
@@ -41,9 +42,8 @@ gulp.task('build', function () {
       destination: "eyeball-snippet-brown",
       data: {
         "{{ snippet_id }}": "666",
-        // blue: 3F9FD8
-        // brown: 443F27
-        "{{ eye_color }}": "#443F27"
+        "{{ eye_color|default('#3F9FD8', true) }}": "#443F27",
+        "{{ body|safe }}": "Our security and privacy on the Internet are fundamental and must not be treated as optional. <a href=\"http://mzl.la/1CgTnKg\">Tell Congress to rein in mass surveillance, protect privacy, and keep us safe.</a>"
       }
     },
     {
@@ -51,9 +51,8 @@ gulp.task('build', function () {
       destination: "eyeball-snippet-hazel",
       data: {
         "{{ snippet_id }}": "666",
-        // blue: 3F9FD8
-        // brown: 443F27
-        "{{ eye_color }}": "#8e7618"
+        "{{ eye_color|default('#3F9FD8', true) }}": "#8e7618",
+        "{{ body|safe }}": "Our security and privacy on the Internet are fundamental and must not be treated as optional. <a href=\"http://mzl.la/1CgTnKg\">Tell Congress to rein in mass surveillance, protect privacy, and keep us safe.</a>"
       }
     },
     {
@@ -61,9 +60,8 @@ gulp.task('build', function () {
       destination: "eyeball-snippet-blue",
       data: {
         "{{ snippet_id }}": "666",
-        // blue: 3F9FD8
-        // brown: 443F27
-        "{{ eye_color }}": "#3F9FD8"
+        "{{ eye_color|default('#3F9FD8', true) }}": "#3F9FD8",
+        "{{ body|safe }}": "Our security and privacy on the Internet are fundamental and must not be treated as optional. <a href=\"http://mzl.la/1CgTnKg\">Tell Congress to rein in mass surveillance, protect privacy, and keep us safe.</a>"
       }
     },
     {
@@ -71,9 +69,8 @@ gulp.task('build', function () {
       destination: "eyeball-snippet-green",
       data: {
         "{{ snippet_id }}": "666",
-        // blue: 3F9FD8
-        // brown: 443F27
-        "{{ eye_color }}": "#41C440"
+        "{{ eye_color|default('#3F9FD8', true) }}": "#41C440",
+        "{{ body|safe }}": "Our security and privacy on the Internet are fundamental and must not be treated as optional. <a href=\"http://mzl.la/1CgTnKg\">Tell Congress to rein in mass surveillance, protect privacy, and keep us safe.</a>"
       }
     },
     {
@@ -81,9 +78,8 @@ gulp.task('build', function () {
       destination: "eyeball-snippet-silver",
       data: {
         "{{ snippet_id }}": "666",
-        // blue: 3F9FD8
-        // brown: 443F27
-        "{{ eye_color }}": "#CCCCFF"
+        "{{ eye_color|default('#3F9FD8', true) }}": "#CCCCFF",
+        "{{ body|safe }}": "Our security and privacy on the Internet are fundamental and must not be treated as optional. <a href=\"http://mzl.la/1CgTnKg\">Tell Congress to rein in mass surveillance, protect privacy, and keep us safe.</a>"
       }
     },
     {
@@ -91,9 +87,8 @@ gulp.task('build', function () {
       destination: "eyeball-snippet-amber",
       data: {
         "{{ snippet_id }}": "666",
-        // blue: 3F9FD8
-        // brown: 443F27
-        "{{ eye_color }}": "#BD5B22"
+        "{{ eye_color|default('#3F9FD8', true) }}": "#BD5B22",
+        "{{ body|safe }}": "Our security and privacy on the Internet are fundamental and must not be treated as optional. <a href=\"http://mzl.la/1CgTnKg\">Tell Congress to rein in mass surveillance, protect privacy, and keep us safe.</a>"
       }
     },
     {
@@ -101,9 +96,8 @@ gulp.task('build', function () {
       destination: "eyeball-snippet-light-orange",
       data: {
         "{{ snippet_id }}": "666",
-        // blue: 3F9FD8
-        // brown: 443F27
-        "{{ eye_color }}": "#FFBF00"
+        "{{ eye_color|default('#3F9FD8', true) }}": "#FFBF00",
+        "{{ body|safe }}": "Our security and privacy on the Internet are fundamental and must not be treated as optional. <a href=\"http://mzl.la/1CgTnKg\">Tell Congress to rein in mass surveillance, protect privacy, and keep us safe.</a>"
       }
     },
     {
@@ -111,9 +105,8 @@ gulp.task('build', function () {
       destination: "eyeball-snippet-orange",
       data: {
         "{{ snippet_id }}": "666",
-        // blue: 3F9FD8
-        // brown: 443F27
-        "{{ eye_color }}": "#FF7E00"
+        "{{ eye_color|default('#3F9FD8', true) }}": "#FF7E00",
+        "{{ body|safe }}": "Our security and privacy on the Internet are fundamental and must not be treated as optional. <a href=\"http://mzl.la/1CgTnKg\">Tell Congress to rein in mass surveillance, protect privacy, and keep us safe.</a>"
       }
     },
     {
@@ -121,9 +114,8 @@ gulp.task('build', function () {
       destination: "eyeball-snippet-red",
       data: {
         "{{ snippet_id }}": "666",
-        // blue: 3F9FD8
-        // brown: 443F27
-        "{{ eye_color }}": "#B7222B"
+        "{{ eye_color|default('#3F9FD8', true) }}": "#B7222B",
+        "{{ body|safe }}": "Our security and privacy on the Internet are fundamental and must not be treated as optional. <a href=\"http://mzl.la/1CgTnKg\">Tell Congress to rein in mass surveillance, protect privacy, and keep us safe.</a>"
       }
     },
     {

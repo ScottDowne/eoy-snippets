@@ -1,6 +1,5 @@
 <div class="snippet" id="mofo-mass-surveillance-{{ snippet_id }}">
   <style type="text/css">
-
     #mofo-mass-surveillance-{{ snippet_id }} .front {
       height: 100%;
       width: 100%;
@@ -23,9 +22,7 @@
     #mofo-mass-surveillance-{{ snippet_id }} .container {
       display: flex;
       align-items: center;
-      margin-top: -15px;
     }
-
 
     #mofo-mass-surveillance-{{ snippet_id }} * {
       box-sizing: border-box;
@@ -39,6 +36,7 @@
       border-radius: 50%;
       overflow: hidden;
     }
+
     #mofo-mass-surveillance-{{ snippet_id }} .eyelid::before,
     #mofo-mass-surveillance-{{ snippet_id }} .eyelid::after {
       background: #E7E7E7;
@@ -52,13 +50,16 @@
       -moz-animation: real-eyelids-{{ snippet_id }} 7s infinite;
       animation: real-eyelids-{{ snippet_id }} 7s infinite;
     }
+
     #mofo-mass-surveillance-{{ snippet_id }} .eyelid::before {
       top: 0;
       z-index: 100;
     }
+
     #mofo-mass-surveillance-{{ snippet_id }} .eyelid::after {
       bottom: 0;
     }
+
     #mofo-mass-surveillance-{{ snippet_id }} .sclera {
       background: #ffffff;
       border-radius: 50%;
@@ -66,8 +67,9 @@
       height: 100%;
       position: relative;
     }
+
     #mofo-mass-surveillance-{{ snippet_id }} .iris {
-      background: {{ eye_color }};
+      background: {{ eye_color|default('#3F9FD8', true) }};
       border-radius: 50%;
       height: 65%;
       width: 65%;
@@ -76,6 +78,7 @@
       top: 17.5%;
       left: 17.5%;
     }
+
     #mofo-mass-surveillance-{{ snippet_id }} .privacy-eye.wander .iris {
       -webkit-animation: searching-eye-{{ snippet_id }} 7s infinite;
       -o-animation: searching-eye-{{ snippet_id }} 7s infinite;
@@ -83,11 +86,11 @@
       animation: searching-eye-{{ snippet_id }} 7s infinite;
     }
 
-    #mofo-mass-surveillance-{{ snippet_id }} .privacy-eye.focus #iris-pupil {
+    #mofo-mass-surveillance-{{ snippet_id }} .privacy-eye.focus .iris {
       padding: 26%;
     }
 
-    #mofo-mass-surveillance-{{ snippet_id }} .privacy-eye #iris-pupil {
+    #mofo-mass-surveillance-{{ snippet_id }} .privacy-eye .iris {
       transition: padding .3s;
     }
 
@@ -98,6 +101,7 @@
       width: 100%;
       position: relative;
     }
+
     #mofo-mass-surveillance-{{ snippet_id }} .shine {
       display: block;
       background: #ffffff;
@@ -108,6 +112,7 @@
       top: 20%;
       right: 20%;
     }
+
     @-webkit-keyframes real-eyelids-{{ snippet_id }} {
       0%,
       90%,
@@ -118,6 +123,7 @@
         height: 60%;
       }
     }
+
     @-o-keyframes real-eyelids-{{ snippet_id }} {
       0%,
       90%,
@@ -128,6 +134,7 @@
         height: 60%;
       }
     }
+
     @-moz-keyframes real-eyelids-{{ snippet_id }} {
       0%,
       90%,
@@ -138,6 +145,7 @@
         height: 60%;
       }
     }
+
     @keyframes real-eyelids-{{ snippet_id }} {
       0%,
       90%,
@@ -148,6 +156,7 @@
         height: 60%;
       }
     }
+
     @-webkit-keyframes searching-eye-{{ snippet_id }} {
       0%,
       85.714285716%,
@@ -180,6 +189,7 @@
         left: 17.5%;
       }
     }
+
     @-o-keyframes searching-eye-{{ snippet_id }} {
       0%,
       85.714285716%,
@@ -212,6 +222,7 @@
         left: 17.5%;
       }
     }
+
     @-moz-keyframes searching-eye-{{ snippet_id }} {
       0%,
       85.714285716%,
@@ -244,6 +255,7 @@
         left: 17.5%;
       }
     }
+
     @keyframes searching-eye-{{ snippet_id }} {
       0%,
       85.714285716%,
@@ -283,13 +295,9 @@
         <div class="front">
           <div class="eyelid">
             <div class="sclera">
-              <div id="iris-pupil" class="iris">
-                <div class="pupil">
-                  &nbsp;
-                </div>
-                <div class="shine">
-                  &nbsp;
-                </div>
+              <div class="iris">
+                <div class="pupil"></div>
+                <div class="shine"></div>
               </div>
             </div>
           </div>
@@ -297,7 +305,7 @@
       </div>
     </div>
     <div class="text-container">
-      Our security and privacy on the Internet are fundamental and must not be treated as optional. <a href="http://mzl.la/1CgTnKg">Tell Congress to rein in mass surveillance, protect privacy, and keep us safe.</a>
+      {{ body|safe }}
     </div>
   </div>
 
@@ -313,10 +321,11 @@
                 var
                 rectangle,
                   radius = 4.5,
+                  iris = document.querySelector('.iris'),
                   center;
 
                 function measureThings() {
-                  rectangle = document.getElementById('iris-pupil').getBoundingClientRect();
+                  rectangle = iris.getBoundingClientRect();
                   center = {
                     x: (rectangle.width / 2) + (rectangle.left),
                     y: (rectangle.height / 2) + (rectangle.top)
@@ -339,7 +348,7 @@
 
                 function translatePupil(coords) {
                   var transform = 'translate(' + Math.round(coords.x) + 'px, ' + Math.round(coords.y) + 'px)';
-                  document.getElementById('iris-pupil').style.transform = transform;
+                  iris.style.transform = transform;
                 }
 
                 var mousemoveTime = Date.now();
@@ -349,7 +358,7 @@
                   var nowTime = Date.now();
                   var diffTime = (nowTime - mousemoveTime) / 1000;
                   if (diffTime > 3 && !eye.classList.contains('focus')) {
-                    document.getElementById('iris-pupil').style.transform = 'translate(0, 0)';
+                    iris.style.transform = 'translate(0, 0)';
                     eye.classList.add('wander');
                   }
 
@@ -367,7 +376,7 @@
 
                 function onMouseEnter() {
                   eye.classList.add('focus');
-                  document.getElementById('iris-pupil').style.transform = 'translate(0, 0)';
+                  iris.style.transform = 'translate(0, 0)';
                   window.removeEventListener("mousemove", onMouseMove);
                 }
 
@@ -376,13 +385,12 @@
                   window.addEventListener("mousemove", onMouseMove);
                 }
 
-                if (document.getElementById('iris-pupil')) {
+                if (iris) {
                   eye.addEventListener("mouseenter", onMouseEnter);
                   eye.addEventListener("mouseleave", onMouseLeave);
                   window.addEventListener("mousemove", onMouseMove);
                 }
               })();
-
           }, false);
       })();
       //]]>
