@@ -37,6 +37,76 @@ gulp.task('build', function () {
       }
     },
     {
+      source: "eyeball-snippet",
+      destination: "eyeball-snippet-brown",
+      data: {
+        "{{ snippet_id }}": "666",
+        // blue: 3F9FD8
+        // brown: 443F27
+        "{{ eye_color }}": "#443F27"
+      }
+    },
+    {
+      source: "eyeball-snippet",
+      destination: "eyeball-snippet-hazel",
+      data: {
+        "{{ snippet_id }}": "666",
+        // blue: 3F9FD8
+        // brown: 443F27
+        "{{ eye_color }}": "#8e7618"
+      }
+    },
+    {
+      source: "eyeball-snippet",
+      destination: "eyeball-snippet-blue",
+      data: {
+        "{{ snippet_id }}": "666",
+        // blue: 3F9FD8
+        // brown: 443F27
+        "{{ eye_color }}": "#3F9FD8"
+      }
+    },
+    {
+      source: "eyeball-snippet",
+      destination: "eyeball-snippet-green",
+      data: {
+        "{{ snippet_id }}": "666",
+        // blue: 3F9FD8
+        // brown: 443F27
+        "{{ eye_color }}": "#41C440"
+      }
+    },
+    {
+      source: "eyeball-snippet",
+      destination: "eyeball-snippet-silver",
+      data: {
+        "{{ snippet_id }}": "666",
+        // blue: 3F9FD8
+        // brown: 443F27
+        "{{ eye_color }}": "#CCCCFF"
+      }
+    },
+    {
+      source: "eyeball-snippet",
+      destination: "eyeball-snippet-amber",
+      data: {
+        "{{ snippet_id }}": "666",
+        // blue: 3F9FD8
+        // brown: 443F27
+        "{{ eye_color }}": "#FF7E00"
+      }
+    },
+    {
+      source: "eyeball-snippet",
+      destination: "eyeball-snippet-red",
+      data: {
+        "{{ snippet_id }}": "666",
+        // blue: 3F9FD8
+        // brown: 443F27
+        "{{ eye_color }}": "#B7222B"
+      }
+    },
+    {
       source: "simple-snippet",
       destination: "simple-snippet",
       data: {
