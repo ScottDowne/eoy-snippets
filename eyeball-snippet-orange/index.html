@@ -116,6 +116,15 @@
       -moz-animation: searching-eye-666 7s infinite;
       animation: searching-eye-666 7s infinite;
     }
+
+    #mofo-mass-surveillance-666 .privacy-eye.focus #iris-pupil {
+      padding: 26%;
+    }
+
+    #mofo-mass-surveillance-666 .privacy-eye #iris-pupil {
+      transition: padding .3s;
+    }
+
     #mofo-mass-surveillance-666 .pupil {
       background: #000000;
       border-radius: 50%;
@@ -123,16 +132,15 @@
       width: 100%;
       position: relative;
     }
-    #mofo-mass-surveillance-666 .pupil::after {
+    #mofo-mass-surveillance-666 .shine {
       display: block;
-      content: '';
       background: #ffffff;
       border-radius: 50%;
-      height: 32%;
-      width: 32%;
+      height: 26%;
+      width: 26%;
       position: absolute;
-      top: 10%;
-      right: 10%;
+      top: 20%;
+      right: 20%;
     }
     @-webkit-keyframes real-eyelids-666 {
       0%,
@@ -313,6 +321,9 @@
                 <div class="pupil">
                   &nbsp;
                 </div>
+                <div class="shine">
+                  &nbsp;
+                </div>
               </div>
             </div>
           </div>
@@ -373,7 +384,7 @@
                   var diffTime = (nowTime - mousemoveTime) / 1000;
                   if (diffTime > 3) {
                     document.getElementById('iris-pupil').style.transform = 'translate(0, 0)';
-                    eye.classList.add('wander');
+                    //eye.classList.add('wander');
                   }
 
                   setTimeout(checkMovement, 1000);
@@ -381,13 +392,28 @@
 
                 checkMovement();
 
+                function onMouseMove(e) {
+                  mousemoveTime = Date.now();
+                  //eye.classList.remove('wander');
+                  measureThings();
+                  translatePupil(doMaths(e.pageX - center.x, e.pageY - center.y, radius));
+                }
+
+                function onMouseEnter() {
+                  eye.classList.add('focus');
+                  document.getElementById('iris-pupil').style.transform = 'translate(0, 0)';
+                  window.removeEventListener("mousemove", onMouseMove);
+                }
+
+                function onMouseLeave() {
+                  eye.classList.remove('focus');
+                  window.addEventListener("mousemove", onMouseMove);
+                }
+
                 if (document.getElementById('iris-pupil')) {
-                  window.onmousemove = function (e) {
-                    mousemoveTime = Date.now();
-                    eye.classList.remove('wander');
-                    measureThings();
-                    translatePupil(doMaths(e.pageX - center.x, e.pageY - center.y, radius));
-                  };
+                  eye.addEventListener("mouseenter", onMouseEnter);
+                  eye.addEventListener("mouseleave", onMouseLeave);
+                  window.addEventListener("mousemove", onMouseMove);
                 }
               })();
 
