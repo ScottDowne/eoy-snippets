@@ -98,12 +98,22 @@ gulp.task('build', function () {
     },
     {
       source: "eyeball-snippet",
-      destination: "eyeball-snippet-orange",
+      destination: "eyeball-snippet-light-orange",
       data: {
         "{{ snippet_id }}": "666",
         // blue: 3F9FD8
         // brown: 443F27
         "{{ eye_color }}": "#FFBF00"
+      }
+    },
+    {
+      source: "eyeball-snippet",
+      destination: "eyeball-snippet-orange",
+      data: {
+        "{{ snippet_id }}": "666",
+        // blue: 3F9FD8
+        // brown: 443F27
+        "{{ eye_color }}": "#FF7E00"
       }
     },
     {
