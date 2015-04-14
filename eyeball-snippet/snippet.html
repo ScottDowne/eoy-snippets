@@ -348,9 +348,9 @@
                 function checkMovement() {
                   var nowTime = Date.now();
                   var diffTime = (nowTime - mousemoveTime) / 1000;
-                  if (diffTime > 3) {
+                  if (diffTime > 3 && !eye.classList.contains('focus')) {
                     document.getElementById('iris-pupil').style.transform = 'translate(0, 0)';
-                    //eye.classList.add('wander');
+                    eye.classList.add('wander');
                   }
 
                   setTimeout(checkMovement, 1000);
@@ -360,7 +360,7 @@
 
                 function onMouseMove(e) {
                   mousemoveTime = Date.now();
-                  //eye.classList.remove('wander');
+                  eye.classList.remove('wander');
                   measureThings();
                   translatePupil(doMaths(e.pageX - center.x, e.pageY - center.y, radius));
                 }
