@@ -90,6 +90,10 @@
       padding: 26%;
     }
 
+    #mofo-mass-surveillance-{{ snippet_id }} .privacy-eye.smooth .iris {
+      transition: padding .3s, transform .2s;
+    }
+
     #mofo-mass-surveillance-{{ snippet_id }} .privacy-eye .iris {
       transition: padding .3s;
     }
@@ -359,6 +363,7 @@
                   var diffTime = (nowTime - mousemoveTime) / 1000;
                   if (diffTime > 3 && !eye.classList.contains('focus')) {
                     iris.style.transform = 'translate(0, 0)';
+                    eye.classList.add('smooth');
                     eye.classList.add('wander');
                   }
 
@@ -370,11 +375,13 @@
                 function onMouseMove(e) {
                   mousemoveTime = Date.now();
                   eye.classList.remove('wander');
+                  eye.classList.remove('smooth');
                   measureThings();
                   translatePupil(doMaths(e.pageX - center.x, e.pageY - center.y, radius));
                 }
 
                 function onMouseEnter() {
+                  eye.classList.add('smooth');
                   eye.classList.add('focus');
                   iris.style.transform = 'translate(0, 0)';
                   window.removeEventListener("mousemove", onMouseMove);
@@ -382,6 +389,7 @@
 
                 function onMouseLeave() {
                   eye.classList.remove('focus');
+                  eye.classList.remove('smooth');
                   window.addEventListener("mousemove", onMouseMove);
                 }
 
