@@ -33,7 +33,7 @@ gulp.task('build', function () {
       destination: "eyeball-snippet",
       data: {
         "{{ snippet_id }}": "666",
-        "{{ body|safe }}": "Our security and privacy on the Internet are fundamental and must not be treated as optional. <a href=\"http://mzl.la/1CgTnKg\">Tell Congress to rein in mass surveillance, protect privacy, and keep us safe.</a>"
+        "{{ body|safe }}": "What kind of information do you think the United States government should collect about you? <a href=\"http://mzl.la/1CgTnKg\">Sort it out here, and get smart on surveillance.</a>"
       }
     }, {
       source: "simple-snippet",
