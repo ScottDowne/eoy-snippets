@@ -33,7 +33,7 @@ gulp.task('build', function () {
       destination: "eyeball-snippet",
       data: {
         "{{ snippet_id }}": "666",
-        "{{ body|safe }}": "What kind of information do you think the United States government should collect about you? <a href=\"http://mzl.la/1CgTnKg\">Sort it out here, and get smart on surveillance.</a>"
+        "{{ body|safe }}": "What kind of information do you think the United States government should collect about you? <a href=\"https://sendto.mozilla.org/page/content/surveillance-interstitial/\">Sort it out here, and get smart on surveillance.</a>"
       }
     }, {
       source: "simple-snippet",
