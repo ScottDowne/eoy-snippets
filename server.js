@@ -4,7 +4,7 @@ var replace = require('gulp-replace');
 var rename = require('gulp-rename');
 var connect = require('gulp-connect');
 
-gulp.task('build', function () {
+function build() {
   function compile(snippet, index, original) {
     var snippetData = snippet.data;
     var snippetSource = fs.readFileSync(snippet.source + "/snippet.html", "utf8");
@@ -50,6 +50,21 @@ gulp.task('build', function () {
         '{{ backgroundColor }}': '',
         '{{ backgroundImg }}': '',
         '{{ buttonAnimate }}': ''
+      }
+    }, {
+      source: "2015-snippet",
+      destination: "2015-snippet",
+      data: {
+        "{{ snippet_id }}": "666",
+        "{{ text|safe }}": "<b>Hello there:</b> We know you love Firefox, but did you know a non-profit called Mozilla built Firefox? Thanks to donations, Mozilla does a lot more than build this awesome browser. We teach people to code, fight for online privacy, and protect this amazing thing called the Web for future generations. Just a few times a year Mozilla asks for donations, and tens of thousands of people all over the world give. If the didn't, we couldn't do all this good stuff. <em>If everyone reading this chipped in jast a few dollars we could wrap this fundraiser up in under an hour. You can make a donation here. Thank you.</em>",
+        "{{ highlightColor }}": '#FFF8D0',
+        "{{ donationAmountFirst|safe }}": "20",
+        "{{ donationAmountSecond|safe }}": "10",
+        "{{ donationAmountThird|safe }}": "5",
+        "{{ donationAmountFourth|safe }}": "3",
+        "{{ donateButtonText|safe }}": "Donate Now",
+        '{{ monthlyCheckboxLabelText|safe }}': 'Make my donation monthly',
+        '{{ donationFormURL|safe }}': "https://donate.mofostaging.net/en-US/"
       }
     }, {
       source: "simple-snippet",
@@ -105,14 +120,17 @@ gulp.task('build', function () {
       }
     }
   ]);
+};
 
+build();
+
+var express = require("express");
+var app = express();
+var port = 3101;
+
+app.use(express.static(__dirname));
+
+app.listen(port, function() {
+  console.log("Running ( http://localhost:" + port + "/ )");
+  console.log("Press Ctrl+C to stop");
 });
-
-gulp.task('connect', function() {
-  connect.server({
-    root: './',
-    port: 2014
-  });
-});
-
-gulp.task('default', ['build', 'connect']);
