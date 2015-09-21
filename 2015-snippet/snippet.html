@@ -147,21 +147,21 @@
 
   </style>
 
-    <p>{{ text|safe }}</p>
+  <p>{{ text|safe }}</p>
 
-    <div class="buttons-container">
-      <div class="monthly-checkbox-container">
-        <input id="monthly-checkbox" class="monthly-checkbox" type="checkbox"><label for="monthly-checkbox" class="monthly-checkbox-label">{{ monthlyCheckboxLabelText|safe }}</label>
-      </div>
-      <div class="donation-amounts">
-        <button class="button button-selected" data-amount="{{ donationAmountFirst|safe }}">{{ donationAmountFirst|safe }} €</button>
-        <button class="button" data-amount="{{ donationAmountSecond|safe }}">{{ donationAmountSecond|safe }} €</button>
-        <button class="button" data-amount="{{ donationAmountThird|safe }}">{{ donationAmountThird|safe }} €</button>
-        <button class="button" data-amount="{{ donationAmountFourth|safe }}">{{ donationAmountFourth|safe }} €</button>
-
-        <a class="button button-red button-wide donate-button  {{ buttonAnimate }}" target="_blank" href="#">{{ donateButtonText|safe }}</a>
-      </div>
+  <div class="buttons-container">
+    <div class="monthly-checkbox-container">
+      <input id="monthly-checkbox" class="monthly-checkbox" type="checkbox"><label for="monthly-checkbox" class="monthly-checkbox-label">{{ monthlyCheckboxLabelText|safe }}</label>
     </div>
+    <div class="donation-amounts">
+      <button class="button button-selected" data-amount="{{ donationAmountFirst|safe }}">{{ donationAmountFirst|safe }} €</button>
+      <button class="button" data-amount="{{ donationAmountSecond|safe }}">{{ donationAmountSecond|safe }} €</button>
+      <button class="button" data-amount="{{ donationAmountThird|safe }}">{{ donationAmountThird|safe }} €</button>
+      <button class="button" data-amount="{{ donationAmountFourth|safe }}">{{ donationAmountFourth|safe }} €</button>
+
+      <a class="button button-red button-wide donate-button  {{ buttonAnimate }}" target="_blank" href="#">{{ donateButtonText|safe }}</a>
+    </div>
+  </div>
 
   <script type="text/javascript">
       //<![CDATA[
@@ -169,7 +169,6 @@
           var snippet = document.getElementById('mofo-eoy-fundraiser-{{ snippet_id }}');
           snippet.addEventListener('show_snippet', function() {
               (function () {
-
                 document.querySelector("body").classList.add("background-{{ snippet_id }}");
                 var donationURL = '{{ donationFormURL|safe }}';
                 var extraParams = 'snippet_name={{ snippet_id }}';
