@@ -57,7 +57,6 @@ function build() {
         "backgroundColor": 'inherit',
         "donationAmountFirst": "20",
         "donationAmountSecond": "10",
-        "clickable": true,
         "blockable": true,
         "donationAmountThird": "5",
         "donationAmountFourth": "3",
