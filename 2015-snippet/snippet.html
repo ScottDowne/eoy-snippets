@@ -43,7 +43,8 @@
         word-spacing: -2px;
         color: rgb(255, 255, 255);
         font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-        font-size: 21px;
+        font-size: 20px;
+        line-height: 36px;
         text-shadow: 0 1px 0 rgba(135, 136, 136, 0.53);
         background-color: rgb(151, 152, 152);
         box-sizing: border-box;
@@ -63,8 +64,8 @@
         background-color: rgb(193, 56, 50);
         background-image: linear-gradient(to top, rgba(0, 1, 1, 0) 0%, rgba(255, 255, 255, 0) 100%);
         font-size: 20px;
+        line-height: 36px;
         margin: 0;
-        line-height: 38px;
         transition: background-color 400ms linear;
       }
       #mofo-eoy-fundraiser-{{ snippet_id }} .button-red:hover {
@@ -194,10 +195,10 @@
       <input id="monthly-checkbox" class="monthly-checkbox" type="checkbox"><label for="monthly-checkbox" class="monthly-checkbox-label">{{ monthlyCheckboxLabelText|safe }}</label>
     </div>
     <div class="donation-amounts">
-      <button class="button button-selected" data-amount="{{ donationAmountFirst|safe }}">{{ donationAmountFirst|safe }} €</button>
-      <button class="button" data-amount="{{ donationAmountSecond|safe }}">{{ donationAmountSecond|safe }} €</button>
-      <button class="button" data-amount="{{ donationAmountThird|safe }}">{{ donationAmountThird|safe }} €</button>
-      <button class="button" data-amount="{{ donationAmountFourth|safe }}">{{ donationAmountFourth|safe }} €</button>
+      <button class="button donation-amount-first" data-amount="{{ donationAmountFirst|safe }}">{{ donationAmountFirst|safe }} €</button>
+      <button class="button donation-amount-second" data-amount="{{ donationAmountSecond|safe }}">{{ donationAmountSecond|safe }} €</button>
+      <button class="button donation-amount-third" data-amount="{{ donationAmountThird|safe }}">{{ donationAmountThird|safe }} €</button>
+      <button class="button donation-amount-fourth" data-amount="{{ donationAmountFourth|safe }}">{{ donationAmountFourth|safe }} €</button>
 
       <a class="button button-red button-wide donate-button  {{ buttonAnimate }}" target="_blank" href="#">{{ donateButtonText|safe }}</a>
     </div>
@@ -221,10 +222,10 @@
                 // Element cache :
 
                 var btnAmounts = snippet.querySelectorAll('.donation-amounts .button');
-                var btnSelected = snippet.querySelector('.donation-amounts .button-selected');
+                var btnSelected;
+                var amount;
                 var btnDonate = snippet.querySelector('.donate-button');
                 var elHighlighted = snippet.querySelector('em');
-                var amount = btnSelected.attributes['data-amount'].value;
                 var monthlyCheckbox = document.querySelector('#monthly-checkbox');
                 var frequency = "";
 
@@ -240,12 +241,20 @@
                 // View functions
 
                 function selectAmount(element) {
+                  if (!element) {
+                    return;
+                  }
                   element.classList.add('button-selected');
-                  btnSelected.classList.remove('button-selected');
+                  if (btnSelected) {
+                    btnSelected.classList.remove('button-selected');
+                  }
                   btnSelected = element;
                   amount = element.attributes['data-amount'].value;
                   updateLink();
                 }
+
+                var selected = "{{ selectedButton }}" || "donation-amount-second";
+                selectAmount(snippet.querySelector("." + selected));
 
                 function updateLink() {
                   btnDonate.attributes['href'].value = donationURL + '&amount=' + amount + "&frequency=" + frequency;

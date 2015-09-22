@@ -57,11 +57,12 @@ function build() {
         "backgroundColor": 'inherit',
         "donationAmountFirst": "20",
         "donationAmountSecond": "10",
-        "blockable": true,
         "donationAmountThird": "5",
         "donationAmountFourth": "3",
+        "selectedButton": "donation-amount-second",
         "donateButtonText": "Donate Now",
         'monthlyCheckboxLabelText': 'Make my donation monthly',
+        "blockable": true,
         'donationFormURL': "https://donate.mofostaging.net/en-US/"
       }
     }, {
