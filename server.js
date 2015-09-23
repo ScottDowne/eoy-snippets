@@ -63,7 +63,9 @@ function build() {
         "donateButtonText": "Donate Now",
         'monthlyCheckboxLabelText': 'Make my donation monthly',
         "blockable": true,
-        'donationFormURL': "https://donate.mofostaging.net/en-US/"
+        "currencyCode": "eur",
+        "currencySymbol": "€",
+        'donationFormURL': "https://donate.mofostaging.net/de/"
       }
     }, {
       source: "simple-snippet",

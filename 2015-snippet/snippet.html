@@ -40,7 +40,7 @@
         height: 38px;
         text-align: center;
         text-decoration: none;
-        word-spacing: -2px;
+        word-spacing: -1px;
         color: rgb(255, 255, 255);
         font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
         font-size: 20px;
@@ -363,10 +363,10 @@
       </svg>
     </div>
     <div class="donation-amounts">
-      <button class="button donation-amount-first" data-amount="{{ donationAmountFirst|safe }}">{{ donationAmountFirst|safe }} €</button>
-      <button class="button donation-amount-second" data-amount="{{ donationAmountSecond|safe }}">{{ donationAmountSecond|safe }} €</button>
-      <button class="button donation-amount-third" data-amount="{{ donationAmountThird|safe }}">{{ donationAmountThird|safe }} €</button>
-      <button class="button donation-amount-fourth" data-amount="{{ donationAmountFourth|safe }}">{{ donationAmountFourth|safe }} €</button>
+      <button class="button donation-amount-first" data-amount="{{ donationAmountFirst|safe }}">{{ donationAmountFirst|safe }} {{ currencySymbol|safe }}</button>
+      <button class="button donation-amount-second" data-amount="{{ donationAmountSecond|safe }}">{{ donationAmountSecond|safe }} {{ currencySymbol|safe }}</button>
+      <button class="button donation-amount-third" data-amount="{{ donationAmountThird|safe }}">{{ donationAmountThird|safe }} {{ currencySymbol|safe }}</button>
+      <button class="button donation-amount-fourth" data-amount="{{ donationAmountFourth|safe }}">{{ donationAmountFourth|safe }} {{ currencySymbol|safe }}</button>
 
       <a class="button button-red button-wide donate-button  {{ buttonAnimate }}" target="_blank" href="#">{{ donateButtonText|safe }}</a>
     </div>
@@ -383,6 +383,7 @@
               (function () {
                 document.querySelector("body").classList.add("background-{{ snippet_id }}");
                 var donationURL = '{{ donationFormURL|safe }}';
+                var currencyCode = '{{ currencyCode|safe }}' || 'usd';
                 var extraParams = 'snippet_name={{ snippet_id }}';
                 if (donationURL.indexOf('?') !== -1) {
                     donationURL += '&' + extraParams;
@@ -424,11 +425,11 @@
                   updateLink();
                 }
 
-                var selected = "{{ selectedButton }}" || "donation-amount-second";
+                var selected = "{{ selectedButton|safe }}" || "donation-amount-second";
                 selectAmount(snippet.querySelector("." + selected));
 
                 function updateLink() {
-                  btnDonate.attributes['href'].value = donationURL + '&amount=' + amount + "&frequency=" + frequency;
+                  btnDonate.attributes['href'].value = donationURL + '&amount=' + amount + "&frequency=" + frequency + "&currency=" + currencyCode;
                 }
                 updateLink();
 
