@@ -385,11 +385,6 @@
                 var donationURL = '{{ donationFormURL|safe }}';
                 var currencyCode = '{{ currencyCode|safe }}' || 'usd';
                 var extraParams = 'snippet_name={{ snippet_id }}';
-                if (donationURL.indexOf('?') !== -1) {
-                    donationURL += '&' + extraParams;
-                } else {
-                    donationURL += '?' + extraParams;
-                }
 
                 // Element cache :
 
@@ -429,7 +424,7 @@
                 selectAmount(snippet.querySelector("." + selected));
 
                 function updateLink() {
-                  btnDonate.attributes['href'].value = donationURL + '&amount=' + amount + "&frequency=" + frequency + "&currency=" + currencyCode;
+                  btnDonate.attributes['href'].value = donationURL + '?amount=' + amount + "&frequency=" + frequency + "&currency=" + currencyCode + '&snippet_name={{ snippet_id }}';
                 }
                 updateLink();
 

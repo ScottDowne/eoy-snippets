@@ -419,11 +419,6 @@
                 var donationURL = 'https://donate.mofostaging.net/de/';
                 var currencyCode = 'eur' || 'usd';
                 var extraParams = 'snippet_name=666';
-                if (donationURL.indexOf('?') !== -1) {
-                    donationURL += '&' + extraParams;
-                } else {
-                    donationURL += '?' + extraParams;
-                }
 
                 // Element cache :
 
@@ -463,7 +458,7 @@
                 selectAmount(snippet.querySelector("." + selected));
 
                 function updateLink() {
-                  btnDonate.attributes['href'].value = donationURL + '&amount=' + amount + "&frequency=" + frequency + "&currency=" + currencyCode;
+                  btnDonate.attributes['href'].value = donationURL + '?amount=' + amount + "&frequency=" + frequency + "&currency=" + currencyCode + '&snippet_name=666';
                 }
                 updateLink();
 
