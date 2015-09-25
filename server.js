@@ -51,7 +51,7 @@ function build() {
       destination: "2015-snippet",
       data: {
         "snippet_id": "666",
-        "text": "<b>Hello there:</b> We know you love Firefox, but did you know a non-profit called Mozilla built Firefox? Thanks to donations, Mozilla does a lot more than build this awesome browser. We teach people to code, fight for online privacy, and protect this amazing thing called the Web for future generations. Just a few times a year Mozilla asks for donations, and tens of thousands of people all over the world give. If the didn't, we couldn't do all this good stuff. <em>If everyone reading this chipped in just a few dollars we could wrap this fundraiser up in under an hour. You can make a donation here. Thank you.</em>",
+        "text": "Mozilla, die gemeinnützige Organisation hinter Firefox, ist auf Spenden von Leuten wie Ihnen angewiesen. <em>Falls jade Person, die das liest, ein paar Euro spendet, so wäre unsere Finanzierung für das nächste Jahr gesichert.</em>",
         "highlightColor": '#FFF8D0',
         "fontColor": 'inherit',
         "backgroundColor": 'inherit',
@@ -61,7 +61,7 @@ function build() {
         "donationAmountFourth": "3",
         "selectedButton": "donation-amount-second",
         "donateButtonText": "Donate Now",
-        'monthlyCheckboxLabelText': 'Make my donation monthly',
+        'monthlyCheckboxLabelText': 'Monatlich',
         "blockable": true,
         "currencyCode": "eur",
         "currencySymbol": "€",
