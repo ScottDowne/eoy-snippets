@@ -60,7 +60,7 @@ function build() {
         "donationAmountThird": "5",
         "donationAmountFourth": "3",
         "selectedButton": "donation-amount-second",
-        "donateButtonText": "Donate Now",
+        "donateButtonText": "Jetzt spenden",
         'monthlyCheckboxLabelText': 'Monatlich',
         "blockable": true,
         "currencyCode": "eur",
