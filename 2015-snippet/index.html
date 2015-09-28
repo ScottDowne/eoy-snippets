@@ -270,7 +270,7 @@
               (function () {
                 document.querySelector("body").classList.add("background-666");
                 var donationURL = 'https://donate.mofostaging.net/de/';
-                var currencyCode = 'eur' || 'usd';
+                var currencyCode = 'eur';
                 var extraParams = 'snippet_name=666';
 
                 // Element cache :
@@ -307,7 +307,7 @@
                   updateLink();
                 }
 
-                var selected = "donation-amount-second" || "donation-amount-second";
+                var selected = "donation-amount-second";
                 selectAmount(snippet.querySelector("." + selected));
 
                 function updateLink() {

@@ -18,7 +18,7 @@
         height: auto;
         padding: 0;
         width: auto;
-        color: {{ fontColor }};
+        color: {{ fontColor|default("inherit", true) }};
       }
 
       #mofo-eoy-fundraiser-{{ snippet_id }} em {
@@ -31,7 +31,7 @@
       }
 
       #mofo-eoy-fundraiser-{{ snippet_id }} em.active {
-        background: {{ highlightColor }};
+        background: {{ highlightColor|default("#FFF8D0", true) }};
       }
 
       #mofo-eoy-fundraiser-{{ snippet_id }} .button {
@@ -150,7 +150,7 @@
       }
 
       body.background-{{ snippet_id }} {
-        background: {{ backgroundColor }};
+        background: {{ backgroundColor|default("inherit", true) }};
       }
 
       body.background-{{ snippet_id }} #launcher {
@@ -204,19 +204,19 @@
     </div>
     <div class="donation-amounts">
       <button class="button donation-amount-first" data-amount="{{ donationAmountFirst }}">
-        {{ donationAmountFirst }} {{ currencySymbol }}
+        {{ donationAmountFirst }} {{ currencySymbol|default("$", true) }}
       </button>
       <button class="button donation-amount-second" data-amount="{{ donationAmountSecond }}">
-        {{ donationAmountSecond }} {{ currencySymbol }}
+        {{ donationAmountSecond }} {{ currencySymbol|default("$", true) }}
       </button>
       <button class="button donation-amount-third" data-amount="{{ donationAmountThird }}">
-        {{ donationAmountThird }} {{ currencySymbol }}
+        {{ donationAmountThird }} {{ currencySymbol|default("$", true) }}
       </button>
       <button class="button donation-amount-fourth" data-amount="{{ donationAmountFourth }}">
-        {{ donationAmountFourth }} {{ currencySymbol }}
+        {{ donationAmountFourth }} {{ currencySymbol|default("$", true) }}
       </button>
 
-      <a class="button button-red button-wide donate-button  {{ buttonAnimate }}" target="_blank" href="#">
+      <a class="button button-red button-wide donate-button  {{ buttonAnimate|default("", true) }}" target="_blank" href="#">
         {{ donateButtonText }}
       </a>
     </div>
@@ -236,7 +236,7 @@
               (function () {
                 document.querySelector("body").classList.add("background-{{ snippet_id }}");
                 var donationURL = '{{ donationFormURL }}';
-                var currencyCode = '{{ currencyCode }}' || 'usd';
+                var currencyCode = '{{ currencyCode|default('usd', true) }}';
                 var extraParams = 'snippet_name={{ snippet_id }}';
 
                 // Element cache :
@@ -273,7 +273,7 @@
                   updateLink();
                 }
 
-                var selected = "{{ selectedButton }}" || "donation-amount-second";
+                var selected = "{{ selectedButton|default("donation-amount-second", true) }}";
                 selectAmount(snippet.querySelector("." + selected));
 
                 function updateLink() {
