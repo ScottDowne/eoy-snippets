@@ -47,6 +47,22 @@ function build() {
         'buttonAnimate': ''
       }
     }, {
+      source: "simple-snippet",
+      destination: "de-simple-snippet",
+      data: {
+        "snippet_id": "666",
+        "text": "Mozilla, die gemeinnützige Organisation hinter Firefox, ist auf Spenden von Leuten wie Ihnen angewiesen. <em>Falls jade Person, die das liest, ein paar Euro spendet, so wäre unsere Finanzierung für das nächste Jahr gesichert.</em>",
+        "highlightColor": 'rgba(243, 248, 1, 0.4)',
+        "donationAmountLeft": "10",
+        "donationAmountMiddle": "5",
+        "donationAmountRight": "3",
+        "donateButtonText": "spenden",
+        'donationFormURL': "https://sendto.mozilla.org/page/contribute/givenow-seq",
+        'backgroundColor': '',
+        'backgroundImg': '',
+        'buttonAnimate': ''
+      }
+    }, {
       source: "2015-snippet",
       destination: "2015-snippet",
       data: {
