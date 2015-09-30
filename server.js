@@ -57,7 +57,7 @@ function build() {
         "donationAmountMiddle": "5",
         "donationAmountRight": "3",
         "donateButtonText": "spenden",
-        'donationFormURL': "https://sendto.mozilla.org/page/contribute/givenow-seq",
+        'donationFormURL': "https://sendto.mozilla.org/page/contribute/givenow-seq-de",
         'backgroundColor': '',
         'backgroundImg': '',
         'buttonAnimate': ''
