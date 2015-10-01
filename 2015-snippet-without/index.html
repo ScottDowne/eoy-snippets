@@ -47,7 +47,7 @@
       #mofo-eoy-fundraiser-666 p {
         font-size: 14px;
         line-height: 21px;
-        margin: 0 5px 20px;
+        margin: 0 20px 20px 5px;
         display: block;
         height: auto;
         padding: 0;
@@ -154,8 +154,7 @@
 
       #mofo-eoy-fundraiser-666 .image-container {
         right: 100%;
-        bottom: 6px;
-        position: absolute;
+        bottom: 0;
         margin-right: -12px;
         position: absolute;
       }
@@ -198,16 +197,14 @@
          position: absolute;
          right: 0;
          top: 0;
-         margin-top: 5px;
-         margin-right: 5px;
          z-index: 10;
          opacity: 0;
-         height: 28px;
-         width: 28px;
+         height: 20px;
+         width: 20px;
          background-color: rgba(0,0,0,0);
          background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAeFBMVEUAAAAAAAAAAAABAQEAAAAAAAAAAAAAAAAAAAAAAADDw8OQkJAAAAAAAAAAAAAAAAD9/f38/Pz6+vr5+fnt7e3i4uLd3d3Z2dmgoKBdXV0mJibv7++amprNzc2amprv7+////9zc3OwsLD29vaPj4+xsbHCwsLBwcHrzmRyAAAAIHRSTlMABAg9HhEMNxkir38xLCkV/Pr39OHTzceOYUrliLuJ5ik+KlgAAAGhSURBVEjHnZbrdoIwDIAXWii3UuV+0wV0+v5vOEBH2ajg8v3y6PlO2pgm+TAAYD0B+HgDsBxbuXzCVbZj7VgAju16USjYhAgjz7WdrVjgKC5FHfh5kxwOSZP7QS0kVw68PJLNJQuKIy44FgGT3LbAHMKNWJviirRlkWsKNIQIqwyNZFU4BFobnihjfEFcCm92tMF83MBnfxwYjBNuchocWN6cCx938AVf5MBywxJ3KUPX0seKqnhfiavIhvlYLMM3yNjP0UDJFmcuN/zF7aI/t1I9lCFIqo1r1y+Nr+6qnXQI87iJDJZGNzra6JZOIG2Y0iWK+bt7N9JrY+Q+/1yIKWmOVy9qt3862lgGPdaeM2U4QDQ52tAEY55BhT4aHS1r/FDBeJUcTY7JwHy8jMVZgybHZGDD+KQkuHbMBiZP5YBrx2zggaCQDka5PiHJhL9yq2B6c8FslmVvKsud4u8Nxb/3xPr1E9t9yP3qIf+vXZylAkJTIrQ+QoMltHHCsCCMJMLgo49XPcTPpiF+1kOcsCrsLSSfeiGhrj305Yqwwn0Dwi/I5rQKpwMAAAAASUVORK5CYII=");
          background-repeat: no-repeat;
-         background-size: 28px 28px;
+         background-size: 20px 20px;
       }
       #xbutton-666:hover {
          background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAe1BMVEUAAAAAAAAAAAAAAAABAQEAAAAAAAAAAAAAAAABAQEAAACQkJAAAADDw8P9/f38/Pz6+vr5+fni4uLZ2dmgoKCampomJibv7+/d3d3ExMRcXFzt7e3t7e3Nzc0AAABeXl7c3Nzv7+/////DOzLdkYz78/LlqaXPYlveko1iPwM8AAAAInRSTlMACwceOhcRBCo+NH8ir/z69/TTx46ISuXNsGHh4LskYszmffUm0QAAAbBJREFUSMelluuSgjAMRrdtegW84/22AXXf/wlXcNzAGEC755fjeCYfmDb5YrBWihpp7dcbWCmM1qpGa3PX3vh96kIAfwdCcOmAJYVWDpZJdl5NR6Pp6pwlS3BKC9lVQhjlfDIfY4PxPPFOGWE7SjjI9/jCPgfHFpJGhe0MWWbboIx8NVJYTLCDyQLSp0PGETLsIYPj06EaB+zl0K5jhYINDrAB1XhvQocFDrIIWlAst50MK5OtM5JizfANZn/RpHY5fX+5YovrhT7nTj/KCOX3ZNyKsmn8FDdydl6JOpdxSdMoKoeMoukkztg6F8wpRlFRklFBUedQJxPpstG7JTm10S46XqaCcjEOGe1kVocMWYdkIgvaVo+yRs7hDFxXDyMUrJBzOANXoMRd8VNkHTKIqX8oI2QdMohRjBIVLOLxI15yxF/Z1zAl3zC9bVlybTnQ/CXT/ENHrGSO2OMg7zoPcvlykCOui88upXsR+9nVd3JGRlywEdd4xLCIGEnRg4/G66lrvJ6q8coPcZ/vuCHuaYjHrQr8QrKuF5Lv9YYWkqG1Bx5rD9Da87/lKmKF+wUdVNNtsJwP7gAAAABJRU5ErkJggg==");
@@ -244,16 +241,16 @@
 
     
     <div class="donation-amounts">
-      <button class="button donation-amount-first" data-amount="20">
+      <button class="button donation-amount donation-amount-first" data-amount="20">
         20 €
       </button>
-      <button class="button donation-amount-second" data-amount="10">
+      <button class="button donation-amount donation-amount-second" data-amount="10">
         10 €
       </button>
-      <button class="button donation-amount-third" data-amount="5">
+      <button class="button donation-amount donation-amount-third" data-amount="5">
         5 €
       </button>
-      <button class="button donation-amount-fourth" data-amount="3">
+      <button class="button donation-amount donation-amount-fourth" data-amount="3">
         3 €
       </button>
 
@@ -270,7 +267,7 @@
   </div>
 
   
-    <button class="block-snippet-button" id="xbutton-666"></button>
+    <button title="Entfernen" class="block-snippet-button" id="xbutton-666"></button>
     <div id="block-snippet-overlay-666"></div>
   
 
@@ -288,7 +285,7 @@
 
                 // Element cache :
 
-                var btnAmounts = snippet.querySelectorAll('.donation-amounts .button');
+                var btnAmounts = snippet.querySelectorAll('.donation-amount');
                 var btnSelected;
                 var amount;
                 var btnDonate = snippet.querySelector('.donate-button');
