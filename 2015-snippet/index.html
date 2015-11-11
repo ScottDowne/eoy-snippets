@@ -283,15 +283,21 @@
           snippet.addEventListener('show_snippet', function() {
               (function () {
                 document.querySelector("body").classList.add("background-666");
-                var donationURL = 'https://donate.mofostaging.net/de/';
+                var donationURL = 'https://donate.mozilla.org/de/';
                 var currencyCode = 'eur';
                 var extraParams = 'snippet_name=666';
+                if (donationURL.indexOf('?') >= 0) {
+                    donationURL += '&' + extraParams;
+                } else {
+                    donationURL += '?' + extraParams;
+                }
 
                 // Element cache :
 
                 var btnAmounts = snippet.querySelectorAll('.donation-amount');
                 var btnSelected;
                 var amount;
+                var presets = '20,10,5,3';
                 var btnDonate = snippet.querySelector('.donate-button');
                 var elHighlighted = snippet.querySelector('em');
                 var monthlyCheckbox = document.querySelector('#monthly-checkbox');
@@ -325,7 +331,7 @@
                 selectAmount(snippet.querySelector("." + selected));
 
                 function updateLink() {
-                  btnDonate.attributes['href'].value = donationURL + '?amount=' + amount + "&frequency=" + frequency + "&currency=" + currencyCode + '&snippet_name=666';
+                  btnDonate.attributes['href'].value = donationURL + '&amount=' + amount + "&frequency=" + frequency + "&currency=" + currencyCode + '&presets=' + presets;
                 }
                 updateLink();
 
