@@ -283,7 +283,8 @@
           snippet.addEventListener('show_snippet', function() {
               (function () {
                 document.querySelector("body").classList.add("background-666");
-                var donationURL = 'https://donate.mozilla.org/de/';
+                var donationURL = 'https://donate.mozilla.org/de/?test=ges&amp;thing=gesg';
+                donationURL = donationURL.replace(/&amp;/g, '&')
                 var currencyCode = 'eur';
                 var extraParams = 'snippet_name=666';
                 if (donationURL.indexOf('?') >= 0) {

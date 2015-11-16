@@ -254,7 +254,7 @@
         3 €
       </button>
 
-      <a class="button button-red button-wide donate-button  " target="_blank" href="#">
+      <a class="button button-red button-wide donate-button  " href="#">
         Jetzt spenden
       </a>
     </div>
@@ -280,6 +280,7 @@
               (function () {
                 document.querySelector("body").classList.add("background-666");
                 var donationURL = 'https://donate.mofostaging.net/de/';
+                donationURL = donationURL.replace(/&amp;/g, '&')
                 var currencyCode = 'eur';
                 var extraParams = 'snippet_name=666';
                 if (donationURL.indexOf('?') >= 0) {
