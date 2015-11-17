@@ -258,7 +258,7 @@
         3 €
       </button>
 
-      <a class="button button-red button-wide donate-button  " href="#">
+      <a class="button button-red button-wide donate-button  " href="https://donate.mozilla.org/de/">
         Jetzt spenden
       </a>
     </div>
@@ -283,8 +283,8 @@
           snippet.addEventListener('show_snippet', function() {
               (function () {
                 document.querySelector("body").classList.add("background-666");
-                var donationURL = 'https://donate.mozilla.org/de/?test=ges&amp;thing=gesg';
-                donationURL = donationURL.replace(/&amp;/g, '&')
+                var btnDonate = snippet.querySelector('.donate-button');
+                var donationURL = btnDonate.attributes['href'].value;
                 var currencyCode = 'eur';
                 var extraParams = 'snippet_name=666';
                 if (donationURL.indexOf('?') >= 0) {
@@ -299,7 +299,6 @@
                 var btnSelected;
                 var amount;
                 var presets = '20,10,5,3';
-                var btnDonate = snippet.querySelector('.donate-button');
                 var elHighlighted = snippet.querySelector('em');
                 var monthlyCheckbox = document.querySelector('#monthly-checkbox');
                 var frequency = "";
