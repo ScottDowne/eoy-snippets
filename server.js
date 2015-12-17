@@ -63,6 +63,25 @@ function build() {
         'buttonAnimate': ''
       }
     }, {
+      source: "2015-disruptive-snippet",
+      destination: "2015-disruptive-snippet-en-US",
+      data: {
+        "snippet_id": "123",
+        "headerText": "As a non-profit, Mozilla can do more with your donations.",
+        "bodyText": "Only a tiny portion of Firefox users give. <em>If everyone reading this chipped in $3, we would be supported for another year.</em> Please help Mozilla. Donate now.",
+        "donationAmountFirst": "20",
+        "donationAmountSecond": "10",
+        "donationAmountThird": "5",
+        "donationAmountFourth": "3",
+        "donateButtonText": "Donate now",
+        'monthlyCheckboxLabelText': 'Make my donation monthly',
+        'closeButtonTitle': 'Remove',
+        "blockable": true,
+        "currencyCode": "usd",
+        "locale": "en-US",
+        'donationFormURL': "https://donate.mozilla.org/en-US/"
+      }
+    }, {
       source: "2015-snippet",
       destination: "2015-snippet-en-US",
       data: {
@@ -95,7 +114,6 @@ function build() {
         'closeButtonTitle': 'Entfernen',
         "blockable": true,
         "currencyCode": "eur",
-        "locale": "de",
         'donationFormURL': "https://donate.mofostaging.net/de/"
       }
     }, {
