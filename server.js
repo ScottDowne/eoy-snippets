@@ -101,6 +101,25 @@ function build() {
         'donationFormURL': "https://donate.mozilla.org/en-US/"
       }
     }, {
+      source: "2015-spectacular-snippet-3",
+      destination: "2015-spectacular-snippet-3",
+      data: {
+        "snippet_id": "123",
+        "headerText": "As a non-profit, Mozilla can do more with your donations.",
+        "bodyText": "If everyone reading this chipped in $3, we would be supported for another year. Donate now.",
+        "donationAmountFirst": "20",
+        "donationAmountSecond": "10",
+        "donationAmountThird": "5",
+        "donationAmountFourth": "3",
+        "donateButtonText": "Donate now",
+        'monthlyCheckboxLabelText': 'Make my donation monthly',
+        'closeButtonTitle': 'Remove',
+        "blockable": true,
+        "currencyCode": "usd",
+        "locale": "en-US",
+        'donationFormURL': "https://donate.mozilla.org/en-US/"
+      }
+    }, {
       source: "2015-snippet",
       destination: "2015-snippet-en-US",
       data: {
