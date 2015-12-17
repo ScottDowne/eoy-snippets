@@ -63,8 +63,8 @@ function build() {
         'buttonAnimate': ''
       }
     }, {
-      source: "2015-disruptive-snippet-1",
-      destination: "2015-disruptive-snippet-1",
+      source: "2015-spectacular-snippet-1",
+      destination: "2015-spectacular-snippet-1",
       data: {
         "snippet_id": "123",
         "headerText": "As a non-profit, Mozilla can do more with your donations.",
@@ -82,8 +82,8 @@ function build() {
         'donationFormURL': "https://donate.mozilla.org/en-US/"
       }
     }, {
-      source: "2015-disruptive-snippet-2",
-      destination: "2015-disruptive-snippet-2",
+      source: "2015-spectacular-snippet-2",
+      destination: "2015-spectacular-snippet-2",
       data: {
         "snippet_id": "123",
         "headerText": "As a non-profit, Mozilla can do more with your donations.",
