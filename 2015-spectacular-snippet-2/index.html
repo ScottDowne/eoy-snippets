@@ -54,6 +54,19 @@
         color: inherit;
       }
 
+      #mofo-eoy-fundraiser-123 em {
+        transition: background 800ms linear;
+        font-style: normal;
+        box-decoration-break: clone;
+        margin: 0px -5px;
+        padding: 2px 5px;
+        font-weight: bold;
+      }
+
+      #mofo-eoy-fundraiser-123 em.active {
+        background: #FFF8D0;
+      }
+
       #mofo-eoy-fundraiser-123 .button {
         margin: 0 8px 0 0;
         width: 62px;
@@ -152,14 +165,9 @@
         position: absolute;
       }
 
-      #mofo-eoy-fundraiser-123 .header-text {
-        font-size: 20px;
-        line-height: 28px;
-      }
       #mofo-eoy-fundraiser-123 .body-text {
         font-size: 20px;
         line-height: 28px;
-        font-weight: bold;
       }
 
       body.background-123 {
@@ -209,8 +217,7 @@
 
   <div class="main-wrapper">
     <div class="background-container">
-      <div class="header-text">As a non-profit, Mozilla can do more with your donations.</div>
-      <div class="body-text">If everyone reading this chipped in $3, we would be supported for another year. Donate now.</div>
+      <div class="body-text">HELLO there: We know you love Firefox, but did you know a non-profit called Mozilla built Firefox? Thanks to donations, Mozilla does a lot more than build this awesome browser. We teach people to code, fight for online privacy, and protect this amazing thing called the Web for future generations. Just a few times a year Mozilla asks for donations, and usually only a tiny portion of Firefox users give. <em>If everyone reading this chipped in $3 to help Mozilla, we could wrap this fundraiser up in under an hour and keep our work going another year.</em> <i>Thank you.</i></div>
     </div>
 
     <div class="donation-container">
@@ -322,6 +329,13 @@
                 btnDonate.addEventListener('click', function (event) {
                   btnDonate.blur();
                 });
+
+                // Fade in highlight on text
+                setTimeout(function() {
+                  if (elHighlighted) {
+                    elHighlighted.classList.add('active');
+                  }
+                }, 1000);
               })();
 
           }, false);

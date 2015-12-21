@@ -67,8 +67,7 @@ function build() {
       destination: "2015-spectacular-snippet-1",
       data: {
         "snippet_id": "123",
-        "headerText": "As a non-profit, Mozilla can do more with your donations.",
-        "bodyText": "Only a tiny portion of Firefox users give. <b>If everyone reading this chipped in $3, we would be supported for another year.</b> Please help Mozilla. Donate now.",
+        "bodyText": "HELLO there: We know you love Firefox, but did you know a non-profit called Mozilla built Firefox? Thanks to donations, Mozilla does a lot more than build this awesome browser. We teach people to code, fight for online privacy, and protect this amazing thing called the Web for future generations. Just a few times a year Mozilla asks for donations, and usually only a tiny portion of Firefox users give. <b>If everyone reading this chipped in $3 to help Mozilla, we could wrap this fundraiser up in under an hour and keep our work going another year.</b> <i>Thank you.</i>",
         "donationAmountFirst": "20",
         "donationAmountSecond": "10",
         "donationAmountThird": "5",
@@ -86,8 +85,7 @@ function build() {
       destination: "2015-spectacular-snippet-2",
       data: {
         "snippet_id": "123",
-        "headerText": "As a non-profit, Mozilla can do more with your donations.",
-        "bodyText": "If everyone reading this chipped in $3, we would be supported for another year. Donate now.",
+        "bodyText": "HELLO there: We know you love Firefox, but did you know a non-profit called Mozilla built Firefox? Thanks to donations, Mozilla does a lot more than build this awesome browser. We teach people to code, fight for online privacy, and protect this amazing thing called the Web for future generations. Just a few times a year Mozilla asks for donations, and usually only a tiny portion of Firefox users give. <em>If everyone reading this chipped in $3 to help Mozilla, we could wrap this fundraiser up in under an hour and keep our work going another year.</em> <i>Thank you.</i>",
         "donationAmountFirst": "20",
         "donationAmountSecond": "10",
         "donationAmountThird": "5",
@@ -105,8 +103,7 @@ function build() {
       destination: "2015-spectacular-snippet-3",
       data: {
         "snippet_id": "123",
-        "headerText": "As a non-profit, Mozilla can do more with your donations.",
-        "bodyText": "If everyone reading this chipped in $3, we would be supported for another year. Donate now.",
+        "bodyText": "HELLO there: We know you love Firefox, but did you know a non-profit called Mozilla built Firefox? Thanks to donations, Mozilla does a lot more than build this awesome browser. We teach people to code, fight for online privacy, and protect this amazing thing called the Web for future generations. Just a few times a year Mozilla asks for donations, and usually only a tiny portion of Firefox users give. <em>If everyone reading this chipped in $3 to help Mozilla, we could wrap this fundraiser up in under an hour and keep our work going another year.</em> <i>Thank you.</i>",
         "donationAmountFirst": "20",
         "donationAmountSecond": "10",
         "donationAmountThird": "5",
