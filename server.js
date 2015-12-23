@@ -94,6 +94,7 @@ function build() {
         'monthlyCheckboxLabelText': 'Make my donation monthly',
         'closeButtonTitle': 'Remove',
         "blockable": true,
+        "animate": true,
         "currencyCode": "usd",
         "locale": "en-US",
         'donationFormURL': "https://donate.mozilla.org/en-US/"
@@ -112,6 +113,7 @@ function build() {
         'monthlyCheckboxLabelText': 'Make my donation monthly',
         'closeButtonTitle': 'Remove',
         "blockable": true,
+        "animate": true,
         "currencyCode": "usd",
         "locale": "en-US",
         'donationFormURL': "https://donate.mozilla.org/en-US/"
