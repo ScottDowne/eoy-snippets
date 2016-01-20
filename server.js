@@ -40,7 +40,9 @@ function build() {
         "countryError": "Country is required.",
         "basketError": "Basket Error",
         "successMessage": "Success", 
-        "newsletter": "mozilla-foundation"
+        "newsletter": "mozilla-foundation",
+        "video_url": "http://video.webmfiles.org/big-buck-bunny_trailer.webm",
+        "video_poster": "http://jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png"
       }
     },
     {
