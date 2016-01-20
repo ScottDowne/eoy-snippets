@@ -24,6 +24,26 @@ function build() {
 
   compileSnippets([
     {
+      source: "signup-snippet",
+      destination: "signup-snippet",
+      data: {
+        "snippet_id": "666",
+        "text": "Mozilla stands up for online privacy. Will you join us? <em>Sign up to get important news and opportunities to stand with us.</em>",
+        "placeholder": "Email",
+        "lang": "en-US",
+        "privacyPolicy": "Learn more on our <a href=\"https://www.mozilla.org/privacy/websites/\">privacy policy</a>.",
+        "submit": "Submit",
+        "blockable": true,
+        "basketHost": "https://basket-dev.allizom.org",
+        "closeButtonTitle": "close",
+        "emailError": "Email is required and must be valid.",
+        "countryError": "Country is required.",
+        "basketError": "Basket Error",
+        "successMessage": "Success", 
+        "newsletter": "mozilla-foundation"
+      }
+    },
+    {
       source: "eyeball-snippet",
       destination: "eyeball-snippet",
       data: {

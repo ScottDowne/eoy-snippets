@@ -1,0 +1,1276 @@
+<div class="snippet" id="signup-snippet-{{ snippet_id }}">
+  <style type="text/css">
+    #signup-snippet-{{ snippet_id }} {
+      position: relative;
+    }
+
+    #signup-snippet-{{ snippet_id }} p {
+      font-size: 14px;
+      line-height: 21px;
+      margin: 0 0 12px 0;
+      display: block;
+      height: auto;
+      padding: 0;
+      width: auto;
+      text-align: {{ textAlign|default("center", true) }};
+      color: {{ fontColor|default("inherit", true) }};
+    }
+
+    #signup-snippet-{{ snippet_id }} em {
+      transition: background 800ms linear;
+      font-style: normal;
+      box-decoration-break: clone;
+      margin: 0px -5px;
+      padding: 2px 5px;
+      font-weight: bold;
+    }
+
+    #signup-snippet-{{ snippet_id }} em.active {
+      background: {{ highlightColor|default("#FFF8D0", true) }};
+    }
+
+    #signup-snippet-{{ snippet_id }} .privacy-policy {
+      text-align: right;
+    }
+
+    #signup-snippet-{{ snippet_id }} .container {
+      background: #EAEAEA;
+      padding: 12px 60px 14px;
+      border-radius: 6px;
+    }
+
+    #signup-snippet-{{ snippet_id }} .row {
+      overflow: hidden;
+      text-align: center;
+      margin: 8px auto;
+      width: 350px;
+      height: 38px;
+    }
+
+    #signup-snippet-{{ snippet_id }} .error-message {
+      color: #C13931;
+    }
+
+    #signup-snippet-{{ snippet_id }} .error-message,
+    #signup-snippet-{{ snippet_id }} .success-message {
+      transition: max-height .3s,
+                  opacity .6s;
+      max-height: 21px;
+      overflow: hidden;
+      opacity: 1;
+    }
+
+    #signup-snippet-{{ snippet_id }} .error-message.hidden,
+    #signup-snippet-{{ snippet_id }} .success-message.hidden {
+      transition: max-height .3s,
+                  opacity .1s;
+      max-height: 0;
+      opacity: 0;
+    }
+
+    #signup-snippet-{{ snippet_id }} input,
+    #signup-snippet-{{ snippet_id }} select {
+      padding-top: 6px;
+      padding-bottom: 6px;
+      background-color: #FFFFFF;
+      border: 1px solid #C6CCD1;
+      border-radius: 2px;
+      padding: 0 14px;
+      height: 38px;
+      font-size: 14px;
+    }
+
+    #signup-snippet-{{ snippet_id }} input:focus,
+    #signup-snippet-{{ snippet_id }} select:focus {
+      border-color: #06AAEA;
+    }
+
+    #signup-snippet-{{ snippet_id }} input.error,
+    #signup-snippet-{{ snippet_id }} select.error {
+      border-color: #C13931;
+    }
+
+    #signup-snippet-{{ snippet_id }} input {
+      width: 100%;
+      height: 100%;
+    }
+
+    #signup-snippet-{{ snippet_id }} select {
+      margin-right: 8px;
+      width: calc(55% - 4px);
+      box-shadow: none;
+    }
+
+    #signup-snippet-{{ snippet_id }} select option[value] {
+      color: #3C3C3C;
+    }
+
+    #signup-snippet-{{ snippet_id }} select option[value=""],
+    #signup-snippet-{{ snippet_id }} select:invalid {
+      color: #8F9394;
+    }
+
+    #signup-snippet-{{ snippet_id }} .button,
+    #signup-snippet-{{ snippet_id }} select {
+      height: 100%;
+      float: left;
+    }
+
+    #signup-snippet-{{ snippet_id }} .button {
+      width: calc(45% - 4px);
+      text-align: center;
+      padding: 8px 0;
+      text-decoration: none;
+      word-spacing: -1px;
+      color: rgb(255, 255, 255);
+      font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-size: 19px;
+      line-height: 1;
+      background-color: #A7AAB3;
+      box-sizing: border-box;
+      background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+      border: none;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    #signup-snippet-{{ snippet_id }} .button:before {
+      content: "";
+      position: absolute;
+      border-radius: 2px;
+      top: 1px;
+      right: 1px;
+      bottom: 1px;
+      left: 1px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    #signup-snippet-{{ snippet_id }} .button:hover {
+      cursor: pointer;
+      background-color: #B3B6BF;
+    }
+
+    #signup-snippet-{{ snippet_id }} .button.button-red {
+      background-color: #F95D6A;
+      background-image: linear-gradient(#F95D6A, #E4263C);
+      margin: 0;
+    }
+    #signup-snippet-{{ snippet_id }} .button.button-red:hover {
+      background-color: #FF7B87;
+      background-image: linear-gradient(transparent, rgba(0,0,0,0.2));
+    }
+
+    {% if blockable %}
+      #xbutton-{{ snippet_id }} {
+         cursor: pointer;
+         border: none;
+         margin-top: 10px;
+         opacity: 0;
+         height: 20px;
+         width: 20px;
+         background-color: rgba(0,0,0,0);
+         background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAeFBMVEUAAAAAAAAAAAABAQEAAAAAAAAAAAAAAAAAAAAAAADDw8OQkJAAAAAAAAAAAAAAAAD9/f38/Pz6+vr5+fnt7e3i4uLd3d3Z2dmgoKBdXV0mJibv7++amprNzc2amprv7+////9zc3OwsLD29vaPj4+xsbHCwsLBwcHrzmRyAAAAIHRSTlMABAg9HhEMNxkir38xLCkV/Pr39OHTzceOYUrliLuJ5ik+KlgAAAGhSURBVEjHnZbrdoIwDIAXWii3UuV+0wV0+v5vOEBH2ajg8v3y6PlO2pgm+TAAYD0B+HgDsBxbuXzCVbZj7VgAju16USjYhAgjz7WdrVjgKC5FHfh5kxwOSZP7QS0kVw68PJLNJQuKIy44FgGT3LbAHMKNWJviirRlkWsKNIQIqwyNZFU4BFobnihjfEFcCm92tMF83MBnfxwYjBNuchocWN6cCx938AVf5MBywxJ3KUPX0seKqnhfiavIhvlYLMM3yNjP0UDJFmcuN/zF7aI/t1I9lCFIqo1r1y+Nr+6qnXQI87iJDJZGNzra6JZOIG2Y0iWK+bt7N9JrY+Q+/1yIKWmOVy9qt3862lgGPdaeM2U4QDQ52tAEY55BhT4aHS1r/FDBeJUcTY7JwHy8jMVZgybHZGDD+KQkuHbMBiZP5YBrx2zggaCQDka5PiHJhL9yq2B6c8FslmVvKsud4u8Nxb/3xPr1E9t9yP3qIf+vXZylAkJTIrQ+QoMltHHCsCCMJMLgo49XPcTPpiF+1kOcsCrsLSSfeiGhrj305Yqwwn0Dwi/I5rQKpwMAAAAASUVORK5CYII=");
+         background-repeat: no-repeat;
+         background-size: 20px 20px;
+      }
+      #xbutton-{{ snippet_id }}:hover {
+         background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAe1BMVEUAAAAAAAAAAAAAAAABAQEAAAAAAAAAAAAAAAABAQEAAACQkJAAAADDw8P9/f38/Pz6+vr5+fni4uLZ2dmgoKCampomJibv7+/d3d3ExMRcXFzt7e3t7e3Nzc0AAABeXl7c3Nzv7+/////DOzLdkYz78/LlqaXPYlveko1iPwM8AAAAInRSTlMACwceOhcRBCo+NH8ir/z69/TTx46ISuXNsGHh4LskYszmffUm0QAAAbBJREFUSMelluuSgjAMRrdtegW84/22AXXf/wlXcNzAGEC755fjeCYfmDb5YrBWihpp7dcbWCmM1qpGa3PX3vh96kIAfwdCcOmAJYVWDpZJdl5NR6Pp6pwlS3BKC9lVQhjlfDIfY4PxPPFOGWE7SjjI9/jCPgfHFpJGhe0MWWbboIx8NVJYTLCDyQLSp0PGETLsIYPj06EaB+zl0K5jhYINDrAB1XhvQocFDrIIWlAst50MK5OtM5JizfANZn/RpHY5fX+5YovrhT7nTj/KCOX3ZNyKsmn8FDdydl6JOpdxSdMoKoeMoukkztg6F8wpRlFRklFBUedQJxPpstG7JTm10S46XqaCcjEOGe1kVocMWYdkIgvaVo+yRs7hDFxXDyMUrJBzOANXoMRd8VNkHTKIqX8oI2QdMohRjBIVLOLxI15yxF/Z1zAl3zC9bVlybTnQ/CXT/ENHrGSO2OMg7zoPcvlykCOui88upXsR+9nVd3JGRlywEdd4xLCIGEnRg4/G66lrvJ6q8coPcZ/vuCHuaYjHrQr8QrKuF5Lv9YYWkqG1Bx5rD9Da87/lKmKF+wUdVNNtsJwP7gAAAABJRU5ErkJggg==");
+      }
+      #xbutton-{{ snippet_id }}:active {
+         background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAe1BMVEUAAAAAAAAAAAAAAAABAQEAAAABAQEAAAAAAAAAAAD9/f3Dw8MAAAAAAACRkZH6+vr5+fnv7+/i4uLd3d3Z2dmgoKBdXV0mJiYAAAAAAACPj4/t7e3t7e2ampoAAACamprOzs7MzMyYmJj///8QEBB5eXnw8PCWlpZAQEB2Ec74AAAAI3RSTlMABgseOio+GRA0+68iEn/39OXTzceOYUoWFX/h4Igjiby5hsu+k6AAAAGoSURBVEjHnZbpYoIwEISbZEMIl8oNam27eLz/E9YY22DdgmR+efAxGxJ2540SY/wmxog/ycvDVombVBvOY4ynKpFaQ3AVaC0TlXI2CXRCQtPHxWYdRetNEWcNSNFZiHYQMsjKCEeKyiyQwjiRhJKw3+GTdl8gFcWwUOg6R1J5rUXInokEqhX+o1UFiWXGxDvEOKEY3i0z9vjESX08+jAurMe0j+CO4UpXOKtKK/5rksp6NY+sapmyHxMBOb6gHAS/m3Ry734/nfFB55P7vJcdu5sEO0dchuOYOA4Xx2wDwe8r6cfEYBhHDGMms6thCkpXxmB0dISRK7UEZRCeNNHotpYhvhhFTWIqC01dBEMQiL0Mr3W1OkaCIQmMdcvMUgqkGIrAwiyGC9ggxVAEbkBwsytrJBiSwHVgkQgJhiQw8kG8CvNYvsdD9thKc2Cy1w9MJkOPY+l3+Fkqs4WvmNmZ7YIXeVm7OMiOLWxKxsSj9Xk0WI827jEsPEaSx+DzHq9uiAeHLTHED4Eb4lRU6P9Ghd5GhelAkhGBZDb2gI09QMQer3DlEeG+AWkO2NrlPO+kAAAAAElFTkSuQmCC");
+      }
+      #signup-snippet-{{ snippet_id }}:hover #xbutton-{{ snippet_id }} {
+         opacity: 1;
+      }
+      #xbutton-{{ snippet_id }} {
+        margin-top: 0;
+        margin-left: 10px;
+      }
+      #signup-snippet-{{ snippet_id }} #block-snippet-container-{{ snippet_id }} {
+        position: absolute;
+        width: 30px;
+        top: 0;
+        height: 100%;
+        right: -30px;
+      }
+    {% endif %}
+
+  </style>
+
+  <p>{{ text|safe }}</p>
+  <div class="container">
+    <div class="error-message email-error hidden">
+      <p>{{ emailError }}</p>
+    </div>
+    <div class="error-message country-error hidden">
+      <p>{{ countryError }}</p>
+    </div>
+    <div class="error-message basket-error hidden">
+      <p>{{ basketError }}</p>
+    </div>
+    <div class="success-message hidden">
+      <p>{{ successMessage }}</p>
+    </div>
+    <div class="row">
+      <input class="email-input" required type="email" placeholder="{{ placeholder }}"></input>
+    </div>
+    <div class="row">
+      <select class="country-input" required>
+        <option value="" selected>
+          Country
+        </option>
+
+        <option value="US">
+          United States
+        </option>
+
+        <option value="AF">
+          Afghanistan
+        </option>
+
+        <option value="AL">
+          Albania
+        </option>
+
+        <option value="DZ">
+          Algeria
+        </option>
+
+        <option value="AS">
+          American Samoa
+        </option>
+
+        <option value="AD">
+          Andorra
+        </option>
+
+        <option value="AO">
+          Angola
+        </option>
+
+        <option value="AI">
+          Anguilla
+        </option>
+
+        <option value="AG">
+          Antigua and Barbuda
+        </option>
+
+        <option value="AR">
+          Argentina
+        </option>
+
+        <option value="AM">
+          Armenia
+        </option>
+
+        <option value="AW">
+          Aruba
+        </option>
+
+        <option value="AU">
+          Australia
+        </option>
+
+        <option value="AT">
+          Austria
+        </option>
+
+        <option value="AZ">
+          Azerbaijan
+        </option>
+
+        <option value="BS">
+          Bahamas
+        </option>
+
+        <option value="BH">
+          Bahrain
+        </option>
+
+        <option value="BD">
+          Bangladesh
+        </option>
+
+        <option value="BB">
+          Barbados
+        </option>
+
+        <option value="BY">
+          Belarus
+        </option>
+
+        <option value="BE">
+          Belgium
+        </option>
+
+        <option value="BZ">
+          Belize
+        </option>
+
+        <option value="BJ">
+          Benin
+        </option>
+
+        <option value="BM">
+          Bermuda
+        </option>
+
+        <option value="BT">
+          Bhutan
+        </option>
+
+        <option value="BO">
+          Bolivia
+        </option>
+
+        <option value="BA">
+          Bosnia and Herzegovina
+        </option>
+
+        <option value="BW">
+          Botswana
+        </option>
+
+        <option value="BR">
+          Brazil
+        </option>
+
+        <option value="VG">
+          British Virgin Islands
+        </option>
+
+        <option value="IO">
+          British Indian Ocean Territory
+        </option>
+
+        <option value="BN">
+          Brunei
+        </option>
+
+        <option value="BG">
+          Bulgaria
+        </option>
+
+        <option value="BF">
+          Burkina Faso
+        </option>
+
+        <option value="BI">
+          Burundi
+        </option>
+
+        <option value="KH">
+          Cambodia
+        </option>
+
+        <option value="CM">
+          Cameroon
+        </option>
+
+        <option value="CA">
+          Canada
+        </option>
+
+        <option value="CV">
+          Cape Verde
+        </option>
+
+        <option value="KY">
+          Cayman Islands
+        </option>
+
+        <option value="CF">
+          Central African Republic
+        </option>
+
+        <option value="TD">
+          Chad
+        </option>
+
+        <option value="CL">
+          Chile
+        </option>
+
+        <option value="CN">
+          China
+        </option>
+
+        <option value="CX">
+          Christmas Island
+        </option>
+
+        <option value="CO">
+          Colombia
+        </option>
+
+        <option value="KM">
+          Comoros Islands
+        </option>
+
+        <option value="CD">
+          Congo, Democratic Republic of the
+        </option>
+
+        <option value="CG">
+          Congo, Republic of the
+        </option>
+
+        <option value="CK">
+          Cook Islands
+        </option>
+
+        <option value="CR">
+          Costa Rica
+        </option>
+
+        <option value="CI">
+          Cote D'ivoire
+        </option>
+
+        <option value="HR">
+          Croatia
+        </option>
+
+        <option value="CU">
+          Cuba
+        </option>
+
+        <option value="CY">
+          Cyprus
+        </option>
+
+        <option value="CZ">
+          Czech Republic
+        </option>
+
+        <option value="DK">
+          Denmark
+        </option>
+
+        <option value="DJ">
+          Djibouti
+        </option>
+
+        <option value="DM">
+          Dominica
+        </option>
+
+        <option value="DO">
+          Dominican Republic
+        </option>
+
+        <option value="TP">
+          East Timor
+        </option>
+
+        <option value="EC">
+          Ecuador
+        </option>
+
+        <option value="EG">
+          Egypt
+        </option>
+
+        <option value="SV">
+          El Salvador
+        </option>
+
+        <option value="GQ">
+          Equatorial Guinea
+        </option>
+
+        <option value="ER">
+          Eritrea
+        </option>
+
+        <option value="EE">
+          Estonia
+        </option>
+
+        <option value="ET">
+          Ethiopia
+        </option>
+
+        <option value="FK">
+          Falkland Islands (Malvinas)
+        </option>
+
+        <option value="FO">
+          Faroe Islands
+        </option>
+
+        <option value="FJ">
+          Fiji
+        </option>
+
+        <option value="FI">
+          Finland
+        </option>
+
+        <option value="FR">
+          France
+        </option>
+
+        <option value="GF">
+          French Guiana
+        </option>
+
+        <option value="PF">
+          French Polynesia
+        </option>
+
+        <option value="TF">
+          French Southern Territories
+        </option>
+
+        <option value="GA">
+          Gabon
+        </option>
+
+        <option value="GM">
+          Gambia
+        </option>
+
+        <option value="GE">
+          Georgia
+        </option>
+
+        <option value="DE">
+          Germany
+        </option>
+
+        <option value="GH">
+          Ghana
+        </option>
+
+        <option value="GI">
+          Gibraltar
+        </option>
+
+        <option value="GR">
+          Greece
+        </option>
+
+        <option value="GL">
+          Greenland
+        </option>
+
+        <option value="GD">
+          Grenada
+        </option>
+
+        <option value="GP">
+          Guadeloupe
+        </option>
+
+        <option value="GU">
+          Guam
+        </option>
+
+        <option value="GT">
+          Guatemala
+        </option>
+
+        <option value="GN">
+          Guinea
+        </option>
+
+        <option value="GW">
+          Guinea-Bissau
+        </option>
+
+        <option value="GY">
+          Guyana
+        </option>
+
+        <option value="HT">
+          Haiti
+        </option>
+
+        <option value="VA">
+          Holy See (Vatican City State)
+        </option>
+
+        <option value="HN">
+          Honduras
+        </option>
+
+        <option value="HK">
+          Hong Kong
+        </option>
+
+        <option value="HU">
+          Hungary
+        </option>
+
+        <option value="IS">
+          Iceland
+        </option>
+
+        <option value="IN">
+          India
+        </option>
+
+        <option value="ID">
+          Indonesia
+        </option>
+
+        <option value="IR">
+          Iran
+        </option>
+
+        <option value="IQ">
+          Iraq
+        </option>
+
+        <option value="IE">
+          Republic of Ireland
+        </option>
+
+        <option value="IL">
+          Israel
+        </option>
+
+        <option value="IT">
+          Italy
+        </option>
+
+        <option value="JM">
+          Jamaica
+        </option>
+
+        <option value="JP">
+          Japan
+        </option>
+
+        <option value="JO">
+          Jordan
+        </option>
+
+        <option value="KZ">
+          Kazakhstan
+        </option>
+
+        <option value="KE">
+          Kenya
+        </option>
+
+        <option value="KI">
+          Kiribati
+        </option>
+
+        <option value="KR">
+          South Korea
+        </option>
+
+        <option value="XK">
+          Kosovo
+        </option>
+
+        <option value="KW">
+          Kuwait
+        </option>
+
+        <option value="KG">
+          Kyrgyzstan
+        </option>
+
+        <option value="LA">
+          Laos
+        </option>
+
+        <option value="LV">
+          Latvia
+        </option>
+
+        <option value="LB">
+          Lebanon
+        </option>
+
+        <option value="LS">
+          Lesotho
+        </option>
+
+        <option value="LR">
+          Liberia
+        </option>
+
+        <option value="LY">
+          Libya
+        </option>
+
+        <option value="LI">
+          Liechtenstein
+        </option>
+
+        <option value="LT">
+          Lithuania
+        </option>
+
+        <option value="LU">
+          Luxembourg
+        </option>
+
+        <option value="MO">
+          Macau
+        </option>
+
+        <option value="MK">
+          Macedonia
+        </option>
+
+        <option value="MG">
+          Madagascar
+        </option>
+
+        <option value="MW">
+          Malawi
+        </option>
+
+        <option value="MY">
+          Malaysia
+        </option>
+
+        <option value="MV">
+          Maldives
+        </option>
+
+        <option value="ML">
+          Mali
+        </option>
+
+        <option value="MT">
+          Malta
+        </option>
+
+        <option value="MH">
+          Marshall Islands
+        </option>
+
+        <option value="MQ">
+          Martinique
+        </option>
+
+        <option value="MR">
+          Mauritania
+        </option>
+
+        <option value="MU">
+          Mauritius
+        </option>
+
+        <option value="YT">
+          Mayotte
+        </option>
+
+        <option value="MX">
+          Mexico
+        </option>
+
+        <option value="FM">
+          Micronesia
+        </option>
+
+        <option value="MD">
+          Moldova, Republic of
+        </option>
+
+        <option value="MC">
+          Monaco
+        </option>
+
+        <option value="MN">
+          Mongolia
+        </option>
+
+        <option value="ME">
+          Montenegro
+        </option>
+
+        <option value="MS">
+          Montserrat
+        </option>
+
+        <option value="MA">
+          Morocco
+        </option>
+
+        <option value="MZ">
+          Mozambique
+        </option>
+
+        <option value="MM">
+          Myanmar
+        </option>
+
+        <option value="NA">
+          Namibia
+        </option>
+
+        <option value="NR">
+          Nauru
+        </option>
+
+        <option value="NP">
+          Nepal
+        </option>
+
+        <option value="NL">
+          Netherlands
+        </option>
+
+        <option value="AN">
+          Netherlands Antilles
+        </option>
+
+        <option value="NC">
+          New Caledonia
+        </option>
+
+        <option value="NZ">
+          New Zealand
+        </option>
+
+        <option value="NI">
+          Nicaragua
+        </option>
+
+        <option value="NE">
+          Niger
+        </option>
+
+        <option value="NG">
+          Nigeria
+        </option>
+
+        <option value="NU">
+          Niue
+        </option>
+
+        <option value="NF">
+          Norfolk Island
+        </option>
+
+        <option value="MP">
+          Northern Mariana Islands
+        </option>
+
+        <option value="NO">
+          Norway
+        </option>
+
+        <option value="OM">
+          Oman
+        </option>
+
+        <option value="PK">
+          Pakistan
+        </option>
+
+        <option value="PW">
+          Palau
+        </option>
+
+        <option value="PA">
+          Panama
+        </option>
+
+        <option value="PG">
+          Papua New Guinea
+        </option>
+
+        <option value="PY">
+          Paraguay
+        </option>
+
+        <option value="PE">
+          Peru
+        </option>
+
+        <option value="PH">
+          Philippines
+        </option>
+
+        <option value="PN">
+          Pitcairn Island
+        </option>
+
+        <option value="PL">
+          Poland
+        </option>
+
+        <option value="PT">
+          Portugal
+        </option>
+
+        <option value="PR">
+          Puerto Rico
+        </option>
+
+        <option value="QA">
+          Qatar
+        </option>
+
+        <option value="RE">
+          Reunion
+        </option>
+
+        <option value="RO">
+          Romania
+        </option>
+
+        <option value="RU">
+          Russian Federation
+        </option>
+
+        <option value="RW">
+          Rwanda
+        </option>
+
+        <option value="KN">
+          Saint Kitts and Nevis
+        </option>
+
+        <option value="LC">
+          Saint Lucia
+        </option>
+
+        <option value="VC">
+          Saint Vincent and the Grenadines
+        </option>
+
+        <option value="WS">
+          Samoa
+        </option>
+
+        <option value="SM">
+          San Marino
+        </option>
+
+        <option value="ST">
+          Sao Tome and Principe
+        </option>
+
+        <option value="SA">
+          Saudi Arabia
+        </option>
+
+        <option value="SN">
+          Senegal
+        </option>
+
+        <option value="RS">
+          Serbia
+        </option>
+
+        <option value="SC">
+          Seychelles
+        </option>
+
+        <option value="SL">
+          Sierra Leone
+        </option>
+
+        <option value="SG">
+          Singapore
+        </option>
+
+        <option value="SK">
+          Slovakia
+        </option>
+
+        <option value="SI">
+          Slovenia
+        </option>
+
+        <option value="SB">
+          Solomon Islands
+        </option>
+
+        <option value="SO">
+          Somalia
+        </option>
+
+        <option value="ZA">
+          South Africa
+        </option>
+
+        <option value="SS">
+          South Sudan
+        </option>
+
+        <option value="ES">
+          Spain
+        </option>
+
+        <option value="LK">
+          Sri Lanka
+        </option>
+
+        <option value="SH">
+          St. Helena
+        </option>
+
+        <option value="PM">
+          St. Pierre and Miquelon
+        </option>
+
+        <option value="SD">
+          Sudan
+        </option>
+
+        <option value="SR">
+          Suriname
+        </option>
+
+        <option value="SY">
+          Syria
+        </option>
+
+        <option value="SZ">
+          Swaziland
+        </option>
+
+        <option value="SE">
+          Sweden
+        </option>
+
+        <option value="CH">
+          Switzerland
+        </option>
+
+        <option value="TW">
+          Taiwan
+        </option>
+
+        <option value="TJ">
+          Tajikistan
+        </option>
+
+        <option value="TZ">
+          Tanzania
+        </option>
+
+        <option value="TH">
+          Thailand
+        </option>
+
+        <option value="TG">
+          Togo
+        </option>
+
+        <option value="TK">
+          Tokelau
+        </option>
+
+        <option value="TO">
+          Tonga
+        </option>
+
+        <option value="TT">
+          Trinidad and Tobago
+        </option>
+
+        <option value="TN">
+          Tunisia
+        </option>
+
+        <option value="TR">
+          Turkey
+        </option>
+
+        <option value="TM">
+          Turkmenistan
+        </option>
+
+        <option value="TC">
+          Turks and Caicos Islands
+        </option>
+
+        <option value="TV">
+          Tuvalu
+        </option>
+
+        <option value="UG">
+          Uganda
+        </option>
+
+        <option value="UA">
+          Ukraine
+        </option>
+
+        <option value="AE">
+          United Arab Emirates
+        </option>
+
+        <option value="GB">
+          United Kingdom
+        </option>
+
+        <option value="UY">
+          Uruguay
+        </option>
+
+        <option value="UZ">
+          Uzbekistan
+        </option>
+
+        <option value="VU">
+          Vanuatu
+        </option>
+
+        <option value="VE">
+          Venezuela
+        </option>
+
+        <option value="VN">
+          Viet Nam
+        </option>
+
+        <option value="VI">
+          Virgin Islands (U.S.)
+        </option>
+
+        <option value="WF">
+          Wallis and Futuna Islands
+        </option>
+
+        <option value="EH">
+          Western Sahara
+        </option>
+
+        <option value="YE">
+          Yemen
+        </option>
+
+        <option value="ZM">
+          Zambia
+        </option>
+
+        <option value="ZW">
+          Zimbabwe
+        </option>
+      </select>
+      <button class="submit-button button button-red">{{ submit }}</button>
+    </div>
+    <div class="privacy-policy">
+      {{ privacyPolicy|safe }}
+    </div>
+  </div>
+
+  {% if blockable %}
+    <div id="block-snippet-container-{{ snippet_id }}">
+      <button title="{{ closeButtonTitle }}" class="block-snippet-button" id="xbutton-{{ snippet_id }}"></button>
+    </div>
+  {% endif %}
+
+
+  <script type="text/javascript">
+      //<![CDATA[
+      (function() {
+          var snippet = document.getElementById('signup-snippet-{{ snippet_id }}');
+          snippet.addEventListener('show_snippet', function() {
+              (function () {
+                document.querySelector("body").classList.add("background-{{ snippet_id }}");
+                var button = snippet.querySelector('.submit-button');
+                var emailInput = snippet.querySelector('.email-input');
+                var emailError = snippet.querySelector('.email-error');
+                var countryError = snippet.querySelector('.country-error');
+                var basketError = snippet.querySelector('.basket-error');
+                var successMessage = snippet.querySelector('.success-message');
+                var countryInput = snippet.querySelector('.country-input');
+                var emailValid = true;
+                var countryValid = true;
+
+                emailInput.addEventListener("input", function() {
+                  if (!emailValid) {
+                    emailValid = emailInput.validity.valid;
+                  }
+                  if (emailValid) {
+                    emailInput.classList.remove("error");
+                    emailError.classList.add("hidden");
+                  }
+                });
+
+                countryInput.addEventListener("change", function() {
+                  if (!countryValid) {
+                    countryValid = countryInput.validity.valid;
+                  }
+                  if (countryValid) {
+                    countryInput.classList.remove("error");
+                    countryError.classList.add("hidden");
+                  }
+                });
+
+                function onSubmitClicked() {
+                  emailValid = emailInput.validity.valid;
+                  countryValid = countryInput.validity.valid;
+                  basketError.classList.add("hidden");
+                  var valid = emailValid && countryValid;
+                  if (valid) {
+                    changeState(000); //loading
+                    sendEmailToBasket();
+                  } else {
+                    if (!emailValid) {
+                      emailInput.classList.add("error");
+                      emailError.classList.remove("hidden");
+                    }
+                    if (!countryValid) {
+                      countryInput.classList.add("error");
+                      countryError.classList.remove("hidden");
+                    }
+                  }
+                }
+                button.addEventListener("click", onSubmitClicked);
+
+                function sendEmailToBasket() {
+                    var lang = '{{ lang }}';
+                    var url = "{{ basketHost|default('https://basket.mozilla.org', true) }}" + "/news/subscribe/";
+                    var newsletters = '{{ newsletters }}';
+                    var source_url = 'https://snippets.mozilla.com/{{ snippet_id }}';
+                    source_url = encodeURIComponent(source_url);
+                    var email = emailInput.value;
+                    var country = countryInput.value;
+                    var params = 'newsletters=' + newsletters + '&source_url=' + source_url + '&lang=' + lang + '&email=' + email + '&country=' + country + '&trigger_welcome=N';
+                    var request = new XMLHttpRequest();
+                    request.onreadystatechange = function() {
+                        if (request.readyState == 4) {
+                          changeState(request.status);
+                        }
+                    }
+                    request.open('POST', url);
+                    request.send(params);
+                }
+                function changeState (status) {
+                  if (status === 200) {
+                    button.classList.remove('loading');
+                    basketError.classList.add("hidden");
+                    successMessage.classList.remove("hidden");
+                  } else if (status === 000) {
+                    //loading
+                    button.classList.add('loading');
+                    basketError.classList.add("hidden");
+                    successMessage.classList.add("hidden");
+                  } else {
+                    basketError.classList.remove("hidden");
+                    button.classList.remove('loading');
+                    successMessage.classList.add("hidden");
+                  }
+                }
+
+                // Fade in highlight on text
+                var elHighlighted = snippet.querySelector('em');
+                setTimeout(function() {
+                  if (elHighlighted) {
+                    elHighlighted.classList.add('active');
+                  }
+                }, 1000);
+
+              })();
+
+          }, false);
+      })();
+      //]]>
+  </script>
+</div>
