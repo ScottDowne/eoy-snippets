@@ -108,16 +108,21 @@
     #signup-snippet-{{ snippet_id }} input[type="text"],
     #signup-snippet-{{ snippet_id }} input[type="email"],
     #signup-snippet-{{ snippet_id }} select {
-      padding-top: 6px;
-      padding-bottom: 6px;
       background-color: #FFFFFF;
       border: 1px solid #C6CCD1;
       border-radius: 2px;
-      padding: 0 14px;
       height: 36px;
       font-size: 14px;
     }
 
+    #signup-snippet-{{ snippet_id }} input[type="text"],
+    #signup-snippet-{{ snippet_id }} input[type="email"] {
+      padding: 0 14px;
+    }
+
+    #signup-snippet-{{ snippet_id }} select {
+      padding: 0 10px;
+    }
     #signup-snippet-{{ snippet_id }} input:focus,
     #signup-snippet-{{ snippet_id }} select:focus {
       border-color: #06AAEA;
