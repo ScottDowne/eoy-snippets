@@ -161,16 +161,6 @@
       border-color: #06AAEA;
     }
 
-    #signup-snippet-666 input.error,
-    #signup-snippet-666 select.error {
-      border-color: #C13931;
-    }
-
-    #signup-snippet-666 input:invalid,
-    #signup-snippet-666 select:invalid {
-      box-shadow: none;
-    }
-
     #signup-snippet-666 input[type="text"],
     #signup-snippet-666 input[type="email"],
     #signup-snippet-666 select {
@@ -386,7 +376,7 @@
 
   <p class="text-content">Mozilla stands up for online privacy. Will you join us? Sign up to get important email updates and opportunities to stand with us.</p>
   <div class="container">
-
+    <form id="form"></form>
     <div id="logo-replacement-666">
       <div class="video-container">
         <div class="video-overlay">
@@ -404,10 +394,7 @@
         <div class="error-container">There was an unexpected error, please try again later.</div>
       </div>
       <div class="row">
-        <input class="email-input" type="email" required placeholder="Email (required)"></input>
-      </div>
-      <div class="error-message email-error hidden">
-        <div class="error-container email-error-container">Email is required and must be valid.</div>
+        <input form="form" class="email-input" type="email" required placeholder="Email (required)"></input>
       </div>
       <div class="row">
         <input class="first-name-input" type="text" placeholder="First Name"></input>
@@ -1352,13 +1339,10 @@
         </select>
       </div>
       <div class="row">
-        <label><input class="privacy-checkbox" required type="checkbox"></input>I’m okay with Mozilla handling my info as explained in <a href="https://www.mozilla.org/en-US/privacy/websites/">this Privacy Notice</a>.</label>
-        <div class="error-message privacy-error hidden">
-          <div class="error-container">Please agree with our privacy policy if you want to proceed.</div>
-        </div>
+        <label><input form="form" class="privacy-checkbox" required type="checkbox"></input>I’m okay with Mozilla handling my info as explained in <a href="https://www.mozilla.org/en-US/privacy/websites/">this Privacy Notice</a>.</label>
       </div>
       <div class="row">
-        <button class="submit-button button button-red"></button>
+        <button form="form" type="submit" class="submit-button button button-red"></button>
       </div>
     </div>
   </div>
@@ -1383,17 +1367,14 @@
               (function () {
                 document.querySelector("body").classList.add("background-666");
                 var button = snippet.querySelector('.submit-button');
+                var form = snippet.querySelector("#form");
                 var mainContainer = snippet.querySelector('.container');
                 var emailInput = snippet.querySelector('.email-input');
-                var emailError = snippet.querySelector('.email-error');
                 var privacyCheckbox = snippet.querySelector('.privacy-checkbox');
-                var privacyError = snippet.querySelector('.privacy-error');
                 var basketError = snippet.querySelector('.basket-error');
                 var successMessage = snippet.querySelector('.success-message');
                 var countryInput = snippet.querySelector('.country-input');
                 var firstNameInput = snippet.querySelector('.first-name-input');
-                var emailValid = true;
-                var privacyValid = true;
 
                 // Fade out logo and insert video.
                 logoContainer.style.opacity = 1;
@@ -1458,44 +1439,11 @@
                   video.play();
                 });
 
-                emailInput.addEventListener("input", function() {
-                  if (!emailValid) {
-                    emailValid = emailInput.validity.valid;
-                  }
-                  if (emailValid) {
-                    emailInput.classList.remove("error");
-                    emailError.classList.add("hidden");
-                  }
+                document.querySelector("#form").addEventListener("submit", function(e) {
+                  e.preventDefault();
+                  changeState(000);
+                  sendEmailToBasket();
                 });
-
-                privacyCheckbox.addEventListener("change", function() {
-                  if (!privacyValid) {
-                    privacyValid = privacyCheckbox.validity.valid;
-                  }
-                  if (privacyValid) {
-                    privacyError.classList.add("hidden");
-                  }
-                });
-
-                function onSubmitClicked() {
-                  emailValid = emailInput.validity.valid;
-                  privacyValid = privacyCheckbox.validity.valid;
-                  basketError.classList.add("hidden");
-                  var valid = emailValid && privacyValid;
-                  if (valid) {
-                    changeState(000); //loading
-                    sendEmailToBasket();
-                  } else {
-                    if (!emailValid) {
-                      emailInput.classList.add("error");
-                      emailError.classList.remove("hidden");
-                    }
-                    if (!privacyValid) {
-                      privacyError.classList.remove("hidden");
-                    }
-                  }
-                }
-                button.addEventListener("click", onSubmitClicked);
 
                 function sendEmailToBasket() {
                     var lang = 'en-US';
