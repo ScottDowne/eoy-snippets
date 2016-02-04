@@ -97,11 +97,6 @@
     #signup-snippet-666 select {
       line-height: 36px;
     }
-    #signup-snippet-666 input[type="text"]:invalid,
-    #signup-snippet-666 input[type="email"]:invalid {
-      box-shadow: none;
-      border-color: red;
-    }
     #signup-snippet-666 label {
       line-height: 28px;
     }
@@ -154,7 +149,6 @@
       box-shadow: none;
     }
     #signup-snippet-666 input:focus,
-    #signup-snippet-666 input:invalid:focus,
     #signup-snippet-666 select:focus {
       border-color: #06AAEA;
     }
@@ -393,7 +387,10 @@
         <div class="error-container">There was an unexpected error, please try again later.</div>
       </div>
       <div class="row">
-        <input form="form" class="email-input" type="email" required="required" placeholder="Email (required)"></input>
+      
+        <input form="form" class="email-input" type="email" required="required" x-moz-errormessage="Email is required and must be valid." placeholder="Email (required)">
+       
+        </input>
       </div>
       <div class="row">
         <input class="first-name-input" type="text" placeholder="First Name"></input>
@@ -1338,7 +1335,12 @@
         </select>
       </div>
       <div class="row">
-        <label><input form="form" class="privacy-checkbox" required="required" type="checkbox"></input>I’m okay with Mozilla handling my info as explained in <a href="https://www.mozilla.org/en-US/privacy/websites/">this Privacy Notice</a>.</label>
+        <label>
+        
+          <input form="form" class="privacy-checkbox" required="required" type="checkbox" x-moz-errormessage="Please agree with our privacy policy if you want to proceed."></input>
+         
+          I’m okay with Mozilla handling my info as explained in <a href="https://www.mozilla.org/en-US/privacy/websites/">this Privacy Notice</a>.
+        </label>
       </div>
       <div class="row">
         <button form="form" type="submit" class="submit-button button button-red"></button>
