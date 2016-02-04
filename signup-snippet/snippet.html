@@ -12,18 +12,14 @@
     }
 
     #signup-snippet-{{ snippet_id }} p {
-      display: block;
-      height: auto;
-      padding: 0;
-      width: auto;
-    }
-
-    #signup-snippet-{{ snippet_id }} .text-content {
       margin: 0 0 12px 0;
       font-size: 14px;
       line-height: 21px;
       text-align: {{ textAlign|default("center", true) }};
       color: {{ fontColor|default("inherit", true) }};
+    }
+    #signup-snippet-{{ snippet_id }} .success-message p {
+      text-align: center;
     }
 
     #signup-snippet-{{ snippet_id }} em {
@@ -37,10 +33,6 @@
 
     #signup-snippet-{{ snippet_id }} em.active {
       background: {{ highlightColor|default("#FFF8D0", true) }};
-    }
-
-    #signup-snippet-{{ snippet_id }} .privacy-policy {
-      
     }
 
     #signup-snippet-{{ snippet_id }} .container {
@@ -57,7 +49,7 @@
       align-items: center;
     }
 
-    #signup-snippet-{{ snippet_id }} .container.success .form-container{
+    #signup-snippet-{{ snippet_id }} .container.success .form-container {
       display: none;
     }
 
@@ -77,11 +69,6 @@
     }
     #signup-snippet-{{ snippet_id }} .error-container {
       padding-bottom: 8px;
-    }
-
-    #signup-snippet-{{ snippet_id }} .email-error-container {
-      padding-top: 7px;
-      padding-bottom: 16px;
     }
 
     #signup-snippet-{{ snippet_id }} .error-message,
@@ -122,6 +109,7 @@
 
     #signup-snippet-{{ snippet_id }} select {
       padding: 0 10px;
+      box-shadow: none;
     }
     #signup-snippet-{{ snippet_id }} input:focus,
     #signup-snippet-{{ snippet_id }} select:focus {
@@ -132,10 +120,6 @@
     #signup-snippet-{{ snippet_id }} input[type="email"],
     #signup-snippet-{{ snippet_id }} select {
       width: 100%;
-    }
-
-    #signup-snippet-{{ snippet_id }} select {
-      box-shadow: none;
     }
 
     #signup-snippet-{{ snippet_id }} input[type="checkbox"] {
@@ -197,6 +181,19 @@
     #signup-snippet-{{ snippet_id }} .button.button-red:hover {
       background-color: #FF7B87;
       background-image: linear-gradient(transparent, rgba(0,0,0,0.2));
+    }
+
+    #signup-snippet-{{ snippet_id }} .button::after {
+      content: '{{ submit  }}';
+    }
+
+    #signup-snippet-{{ snippet_id }} .loading.button::after {
+      font-family: fontello-{{ snippet_id }};
+      content: '\e801';  /* Spin icon */
+      position: absolute;
+      line-height: 0;
+      margin-left: -9px;
+      animation: 1.5s linear 0s infinite spin-{{ snippet_id }};
     }
 
     #logo-replacement-{{ snippet_id }} {
@@ -281,19 +278,6 @@
       padding-left: 10px;
     }
 
-    #signup-snippet-{{ snippet_id }} .button::after {
-      content: '{{ submit  }}';
-    }
-
-    #signup-snippet-{{ snippet_id }} .loading.button::after {
-      font-family: fontello-{{ snippet_id }};
-      content: '\e801';  /* Spin icon */
-      position: absolute;
-      line-height: 0;
-      margin-left: -9px;
-      animation: 1.5s linear 0s infinite spin-{{ snippet_id }};
-    }
-
     @-moz-keyframes spin-{{ snippet_id }} {
         from { -moz-transform: rotate(0deg); }
         to { -moz-transform: rotate(360deg); }
@@ -341,7 +325,7 @@
 
   </style>
 
-  <p class="text-content">{{ text|safe }}</p>
+  <p>{{ text|safe }}</p>
   <div class="container">
     <form id="form"></form>
     <div id="logo-replacement-{{ snippet_id }}">
@@ -354,21 +338,21 @@
       </div>
     </div>
     <div class="success-message hidden">
-      <p class="text-content">{{ successMessage }}</p>
+      <p>{{ successMessage }}</p>
     </div>
     <div class="form-container">
       <div class="error-message basket-error hidden">
         <div class="error-container">{{ basketError }}</div>
       </div>
       <div class="row">
-        <input form="form" class="email-input" type="email" required placeholder="{{ emailPlaceholder }}"></input>
+        <input form="form" class="email-input" type="email" required="required" placeholder="{{ emailPlaceholder }}"></input>
       </div>
       <div class="row">
         <input class="first-name-input" type="text" placeholder="{{ firstnamePlaceholder }}"></input>
       </div>
       <div class="row">
-        <select class="country-input" required>
-          <option value="" selected>
+        <select class="country-input" required="required">
+          <option value="" selected="selected">
             {{ countryPlaceholder }}
           </option>
 
@@ -1306,7 +1290,7 @@
         </select>
       </div>
       <div class="row">
-        <label><input form="form" class="privacy-checkbox" required type="checkbox"></input>{{ privacyPolicy|safe }}</label>
+        <label><input form="form" class="privacy-checkbox" required="required" type="checkbox"></input>{{ privacyPolicy|safe }}</label>
       </div>
       <div class="row">
         <button form="form" type="submit" class="submit-button button button-red"></button>

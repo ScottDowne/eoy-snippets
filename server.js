@@ -38,8 +38,6 @@ function build() {
         "blockable": true,
         "basketHost": "https://basket-dev.allizom.org",
         "closeButtonTitle": "close",
-        "emailError": "Email is required and must be valid.",
-        "privacyError": "Please agree with our privacy policy if you want to proceed.",
         "basketError": "There was an unexpected error, please try again later.",
         "successMessage": "Great! Look for a confirmation email in your inbox to complete your subscription to our email list.", 
         "newsletter": "mozilla-foundation",
