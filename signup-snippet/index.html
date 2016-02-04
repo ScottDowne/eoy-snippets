@@ -44,14 +44,14 @@
       position: relative;
     }
 
-    #signup-snippet-666 p {
+    #signup-snippet-666 .text-content {
       margin: 0 0 12px 0;
       font-size: 14px;
       line-height: 21px;
       text-align: center;
       color: inherit;
     }
-    #signup-snippet-666 .success-message p {
+    #signup-snippet-666 .success-message .text-content {
       text-align: center;
     }
 
@@ -86,12 +86,21 @@
       display: none;
     }
 
+    #signup-snippet-666 #form {
+      margin: 0;
+    }
+
     #signup-snippet-666 .row {
       padding: 2px 0;
     }
     #signup-snippet-666 input,
     #signup-snippet-666 select {
       line-height: 36px;
+    }
+    #signup-snippet-666 input[type="text"]:invalid,
+    #signup-snippet-666 input[type="email"]:invalid {
+      box-shadow: none;
+      border-color: red;
     }
     #signup-snippet-666 label {
       line-height: 28px;
@@ -145,6 +154,7 @@
       box-shadow: none;
     }
     #signup-snippet-666 input:focus,
+    #signup-snippet-666 input:invalid:focus,
     #signup-snippet-666 select:focus {
       border-color: #06AAEA;
     }
@@ -153,6 +163,7 @@
     #signup-snippet-666 input[type="email"],
     #signup-snippet-666 select {
       width: 100%;
+      box-sizing: border-box;
     }
 
     #signup-snippet-666 input[type="checkbox"] {
@@ -229,6 +240,7 @@
       animation: 1.5s linear 0s infinite spin-666;
     }
 
+  
     #logo-replacement-666 {
         margin: 22px auto 0 auto;
         width: 666px;
@@ -310,6 +322,7 @@
       content: '\e800';  /* Play icon */
       padding-left: 10px;
     }
+  
 
     @-moz-keyframes spin-666 {
         from { -moz-transform: rotate(0deg); }
@@ -358,9 +371,10 @@
 
   </style>
 
-  <p>Mozilla stands up for online privacy. Will you join us? Sign up to get important email updates and opportunities to stand with us.</p>
+  <div class="text-content">Mozilla stands up for online privacy. Will you join us? Sign up to get important email updates and opportunities to stand with us.</div>
   <div class="container">
     <form id="form"></form>
+  
     <div id="logo-replacement-666">
       <div class="video-container">
         <div class="video-overlay">
@@ -370,8 +384,9 @@
         <video poster="http://jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png" src="http://video.webmfiles.org/big-buck-bunny_trailer.webm" />
       </div>
     </div>
+  
     <div class="success-message hidden">
-      <p>Great! Look for a confirmation email in your inbox to complete your subscription to our email list.</p>
+      <div class="text-content">Great! Look for a confirmation email in your inbox to complete your subscription to our email list.</div>
     </div>
     <div class="form-container">
       <div class="error-message basket-error hidden">
@@ -1342,11 +1357,13 @@
       //<![CDATA[
       (function() {
           var snippet = document.getElementById('signup-snippet-666');
+        
           var logoContainer = document.getElementById('brandLogo');
           var topContainer = document.getElementById("topSection");
           var logoReplacement = document.getElementById('logo-replacement-666');
           var video = logoReplacement.querySelector('video');
           var replay = logoReplacement.querySelector('.replay');
+        
           snippet.addEventListener('show_snippet', function() {
               (function () {
                 document.querySelector("body").classList.add("background-666");
@@ -1354,12 +1371,24 @@
                 var form = snippet.querySelector("#form");
                 var mainContainer = snippet.querySelector('.container');
                 var emailInput = snippet.querySelector('.email-input');
+                var countryInput = snippet.querySelector('.country-input');
+                var firstNameInput = snippet.querySelector('.first-name-input');
                 var privacyCheckbox = snippet.querySelector('.privacy-checkbox');
                 var basketError = snippet.querySelector('.basket-error');
                 var successMessage = snippet.querySelector('.success-message');
-                var countryInput = snippet.querySelector('.country-input');
-                var firstNameInput = snippet.querySelector('.first-name-input');
 
+                function sendCustomMetric(label, callback) {
+                  sendMetric(label + "-666", callback);
+                }
+
+                function onKeyPress(e) {
+                  e.stopPropagation();
+                }
+
+                emailInput.addEventListener('keypress', onKeyPress);
+                firstNameInput.addEventListener('keypress', onKeyPress);
+
+              
                 // Fade out logo and insert video.
                 logoContainer.style.opacity = 1;
                 logoContainer.style.transitionProperty = 'opacity';
@@ -1383,10 +1412,6 @@
                         video.classList.add('played');
                     }
                 });
-
-                function sendCustomMetric(label, callback) {
-                  sendMetric(label + "-666", callback);
-                }
 
                 // Track when the video is first played.
                 var hasPlayed = false;
@@ -1422,6 +1447,7 @@
                   sendCustomMetric("signup-video-replay");
                   video.play();
                 });
+              
 
                 document.querySelector("#form").addEventListener("submit", function(e) {
                   e.preventDefault();
