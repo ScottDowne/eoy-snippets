@@ -36,7 +36,7 @@ function build() {
         "privacyPolicy": "I’m okay with Mozilla handling my info as explained in <a href=\"https://www.mozilla.org/en-US/privacy/websites/\">this Privacy Notice</a>.",
         "submit": "Submit",
         "blockable": true,
-        "basketHost": "https://basket-dev.allizom.org",
+        "basketHost": "https://basket.mozilla.org",
         "closeButtonTitle": "close",
         "basketError": "There was an unexpected error, please try again later.",
         "successMessage": "Great! Look for a confirmation email in your inbox to complete your subscription to our email list.", 
