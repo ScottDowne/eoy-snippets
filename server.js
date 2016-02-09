@@ -40,7 +40,7 @@ function build() {
         "closeButtonTitle": "close",
         "basketError": "There was an unexpected error, please try again later.",
         "successMessage": "Great! Look for a confirmation email in your inbox to complete your subscription to our email list.", 
-        "newsletter": "mozilla-foundation",
+        "newsletters": "mozilla-foundation",
         "video_url": "http://video.webmfiles.org/big-buck-bunny_trailer.webm",
         "video_poster": "http://jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png"
       }
